@@ -1,4 +1,4 @@
-#OnWeek.ly
+# OnWeek.ly
 
 Simple web app to track tasks in a simple way. You're on client project for the OnWeek.ly project.
 To check the backend API, please visit: [OnWeek.ly API](https://github.com/grglucastr/onweekly-api) for more infos.
