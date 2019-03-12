@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { addTask } from "../actions/tasks";
 import "./Base.css";
@@ -25,7 +25,7 @@ class AddTask extends React.Component {
       ...state,
       task: {
         ...state.task,
-        [name]: value
+        [name]: isNaN(value) ? value : eval(value)
       }
     }));
   };
@@ -39,7 +39,7 @@ class AddTask extends React.Component {
   render() {
     return (
       <div className="border-spacing">
-        {this.state.redirectToHome ? "opa" : "mo"}
+        {this.state.redirectToHome ? <Redirect to="/" /> : ""}
 
         <h3>New Task</h3>
         <form onSubmit={this.formSubmit}>
@@ -77,25 +77,25 @@ class AddTask extends React.Component {
 
             <label htmlFor="type-voc">
               <input
-                checked={this.state.task.type === "1"}
+                checked={this.state.task.type === 1}
                 onChange={this.onInputChange}
                 type="radio"
                 id="type-voc"
                 name="type"
                 value="1"
-              />{" "}
+              />
               VOC
             </label>
 
             <label htmlFor="type-issue">
               <input
-                checked={this.state.task.type === "2"}
+                checked={this.state.task.type === 2}
                 onChange={this.onInputChange}
                 type="radio"
                 id="type-issue"
                 name="type"
                 value="2"
-              />{" "}
+              />
               Issue
             </label>
           </div>
@@ -105,7 +105,7 @@ class AddTask extends React.Component {
 
             <label htmlFor="status-plan">
               <input
-                checked={this.state.task.status === "1"}
+                checked={this.state.task.status === 1}
                 onChange={this.onInputChange}
                 type="radio"
                 id="status-plan"
@@ -117,7 +117,7 @@ class AddTask extends React.Component {
 
             <label htmlFor="status-progress">
               <input
-                checked={this.state.task.status === "2"}
+                checked={this.state.task.status === 2}
                 onChange={this.onInputChange}
                 type="radio"
                 id="status-progress"
@@ -129,7 +129,7 @@ class AddTask extends React.Component {
 
             <label htmlFor="status-done">
               <input
-                checked={this.state.task.status === "3"}
+                checked={this.state.task.status === 3}
                 onChange={this.onInputChange}
                 type="radio"
                 id="status-done"

@@ -7,7 +7,7 @@ export default function tasks(state = [], action) {
       return action.tasks;
 
     case ADD_TASK:
-      return [...state.tasks, action.task];
+      return [...state, action.task];
 
     default:
       return state;

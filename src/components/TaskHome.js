@@ -19,22 +19,22 @@ class Home extends Component {
         <h3>Tasks Listing Home</h3>
         <p>Plan</p>
         <ul>
-          {planTasks.map(task => (
-            <li key={task.id}>{task.subject}</li>
+          {planTasks.map((task, idx) => (
+            <li key={idx}>{task.subject}</li>
           ))}
         </ul>
 
         <p>In Progress</p>
         <ul>
-          {progressTasks.map(task => (
-            <li key={task.id}>{task.subject}</li>
+          {progressTasks.map((task, idx) => (
+            <li key={idx}>{task.subject}</li>
           ))}
         </ul>
 
         <p>Done</p>
         <ul>
-          {doneTasks.map(task => (
-            <li key={task.id}>{task.subject}</li>
+          {doneTasks.map((task, idx) => (
+            <li key={idx}>{task.subject}</li>
           ))}
         </ul>
       </div>
