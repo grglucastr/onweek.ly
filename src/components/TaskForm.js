@@ -1,44 +1,46 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import './Base.css'
+import React from "react";
+import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { addTask } from "../actions/tasks";
+import "./Base.css";
 
-class AddTask extends React.Component{
-
+class AddTask extends React.Component {
   state = {
-    task:{
-      subject: '',
-      description: '',
-      requester: '',
-      type: '',
-      status: '',
-      startDate: '',
-      expectedEndDate: '',
-      remark: ''
+    task: {
+      subject: "",
+      description: "",
+      requester: "",
+      type: "",
+      status: "",
+      startDate: "",
+      expectedEndDate: "",
+      remark: ""
     },
-  }
+    redirectToHome: false
+  };
 
   onInputChange = e => {
-    const { name, value } = e.target
+    const { name, value } = e.target;
     this.setState(state => ({
       ...state,
-      task:{
+      task: {
         ...state.task,
-        [name]:value
+        [name]: value
       }
-    })) 
-   
-  }
+    }));
+  };
 
   formSubmit = e => {
     e.preventDefault();
-    console.log(this.state);
-    
-    
-  }
+    this.props.dispatch(addTask(this.state.task));
+    this.setState({ redirectToHome: true });
+  };
 
-  render(){
-    return(
+  render() {
+    return (
       <div className="border-spacing">
+        {this.state.redirectToHome ? "opa" : "mo"}
+
         <h3>New Task</h3>
         <form onSubmit={this.formSubmit}>
           <div>
@@ -48,7 +50,6 @@ class AddTask extends React.Component{
               onChange={this.onInputChange}
               id="subject"
               name="subject"
-              
             />
           </div>
           <div>
@@ -59,7 +60,8 @@ class AddTask extends React.Component{
               id="description"
               name="description"
               cols="30"
-              rows="8"></textarea>
+              rows="8"
+            />
           </div>
           <div>
             <label htmlFor="requester">Requester:</label>
@@ -67,7 +69,8 @@ class AddTask extends React.Component{
               value={this.state.task.requester}
               onChange={this.onInputChange}
               id="requester"
-              name="requester"/>
+              name="requester"
+            />
           </div>
           <div>
             <label htmlFor="type-voc">Type:</label>
@@ -79,17 +82,21 @@ class AddTask extends React.Component{
                 type="radio"
                 id="type-voc"
                 name="type"
-                value="1"/> VOC
+                value="1"
+              />{" "}
+              VOC
             </label>
-            
+
             <label htmlFor="type-issue">
               <input
                 checked={this.state.task.type === "2"}
                 onChange={this.onInputChange}
                 type="radio"
-                id="type-issue"              
+                id="type-issue"
                 name="type"
-                value="2"/> Issue
+                value="2"
+              />{" "}
+              Issue
             </label>
           </div>
 
@@ -103,19 +110,22 @@ class AddTask extends React.Component{
                 type="radio"
                 id="status-plan"
                 name="status"
-                value="1"/> Plan
+                value="1"
+              />{" "}
+              Plan
             </label>
-            
+
             <label htmlFor="status-progress">
               <input
                 checked={this.state.task.status === "2"}
                 onChange={this.onInputChange}
                 type="radio"
-                id="status-progress"   
+                id="status-progress"
                 name="status"
-                value="2"/> In Progress
+                value="2"
+              />{" "}
+              In Progress
             </label>
-            
 
             <label htmlFor="status-done">
               <input
@@ -124,7 +134,9 @@ class AddTask extends React.Component{
                 type="radio"
                 id="status-done"
                 name="status"
-                value="3"/> Done
+                value="3"
+              />{" "}
+              Done
             </label>
           </div>
 
@@ -157,20 +169,16 @@ class AddTask extends React.Component{
               name="remark"
               cols="30"
               rows="8"
-            ></textarea>
+            />
           </div>
 
-
-          <Link to="/">
-            Cancel
-          </Link>
+          <Link to="/">Cancel</Link>
 
           <button>Save</button>
         </form>
-
       </div>
-    )
+    );
   }
 }
 
-export default AddTask
+export default connect()(AddTask);
