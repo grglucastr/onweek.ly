@@ -4,9 +4,35 @@ import './Base.css'
 
 class AddTask extends React.Component{
 
-  htmlFormSubmit(e){
+  state = {
+    task:{
+      subject: '',
+      description: '',
+      requester: '',
+      type: '',
+      status: '',
+      startDate: '',
+      expectedEndDate: '',
+      remark: ''
+    },
+  }
+
+  onInputChange = e => {
+    const { name, value } = e.target
+    this.setState(state => ({
+      ...state,
+      task:{
+        ...state.task,
+        [name]:value
+      }
+    })) 
+   
+  }
+
+  formSubmit = e => {
     e.preventDefault();
-    console.log('log me here');
+    console.log(this.state);
+    
     
   }
 
@@ -14,17 +40,22 @@ class AddTask extends React.Component{
     return(
       <div className="border-spacing">
         <h3>New Task</h3>
-        <form onSubmit={this.onSubmit}>
+        <form onSubmit={this.formSubmit}>
           <div>
             <label htmlFor="subject">Subject:</label>
             <input
+              value={this.state.task.subject}
+              onChange={this.onInputChange}
               id="subject"
-              name="subject"            
+              name="subject"
+              
             />
           </div>
           <div>
             <label htmlFor="description">Description:</label>
             <textarea
+              value={this.state.task.description}
+              onChange={this.onInputChange}
               id="description"
               name="description"
               cols="30"
@@ -33,6 +64,8 @@ class AddTask extends React.Component{
           <div>
             <label htmlFor="requester">Requester:</label>
             <input
+              value={this.state.task.requester}
+              onChange={this.onInputChange}
               id="requester"
               name="requester"/>
           </div>
@@ -41,6 +74,8 @@ class AddTask extends React.Component{
 
             <label htmlFor="type-voc">
               <input
+                checked={this.state.task.type === "1"}
+                onChange={this.onInputChange}
                 type="radio"
                 id="type-voc"
                 name="type"
@@ -49,10 +84,12 @@ class AddTask extends React.Component{
             
             <label htmlFor="type-issue">
               <input
+                checked={this.state.task.type === "2"}
+                onChange={this.onInputChange}
                 type="radio"
                 id="type-issue"              
                 name="type"
-                value="1"/> Issue
+                value="2"/> Issue
             </label>
           </div>
 
@@ -61,6 +98,8 @@ class AddTask extends React.Component{
 
             <label htmlFor="status-plan">
               <input
+                checked={this.state.task.status === "1"}
+                onChange={this.onInputChange}
                 type="radio"
                 id="status-plan"
                 name="status"
@@ -69,6 +108,8 @@ class AddTask extends React.Component{
             
             <label htmlFor="status-progress">
               <input
+                checked={this.state.task.status === "2"}
+                onChange={this.onInputChange}
                 type="radio"
                 id="status-progress"   
                 name="status"
@@ -78,6 +119,8 @@ class AddTask extends React.Component{
 
             <label htmlFor="status-done">
               <input
+                checked={this.state.task.status === "3"}
+                onChange={this.onInputChange}
                 type="radio"
                 id="status-done"
                 name="status"
@@ -88,6 +131,8 @@ class AddTask extends React.Component{
           <div>
             <label htmlFor="start-date">Start Date:</label>
             <input
+              value={this.state.task.startDate}
+              onChange={this.onInputChange}
               id="start-date"
               name="startDate"
             />
@@ -96,6 +141,8 @@ class AddTask extends React.Component{
           <div>
             <label htmlFor="expected-end-date">Expected End Date:</label>
             <input
+              value={this.state.task.expectedEndDate}
+              onChange={this.onInputChange}
               id="expected-end-date"
               name="expectedEndDate"
             />
@@ -104,6 +151,8 @@ class AddTask extends React.Component{
           <div>
             <label htmlFor="remark">Remark:</label>
             <textarea
+              value={this.state.task.remark}
+              onChange={this.onInputChange}
               id="remark"
               name="remark"
               cols="30"
