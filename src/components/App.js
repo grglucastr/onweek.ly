@@ -4,9 +4,8 @@ import { Switch, Route } from 'react-router-dom'
 import AppHeader from './AppHeader'
 import AppFooter from './AppFooter'
 
-import Home from './Home'
-
-import TaskNew from './TaskNew'
+import TaskHome from './TaskHome'
+import TaskForm from './TaskForm'
 
 class App extends Component {
   render() {
@@ -14,8 +13,9 @@ class App extends Component {
       <div>
         <AppHeader />
         <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/tasks" component={TaskNew} />
+          <Route exact path="/" component={TaskHome} />
+          <Route exact path="/tasks" component={TaskHome} />
+          <Route path="/tasks/add" component={TaskForm} />
         </Switch>
         <AppFooter />
       </div>
