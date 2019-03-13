@@ -1,17 +1,19 @@
 import React from "react";
 import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import { addTask } from "../actions/tasks";
+import { addTask, editTask } from "../actions/tasks";
 import "./Base.css";
 
 class AddTask extends React.Component {
   state = {
     task: this.props.task ? this.props.task : this.initialTask(),
-    redirectToHome: false
+    redirectToHome: false,
+    isEditing: this.props.task ? true : false
   };
 
   initialTask() {
     return {
+      id: Math.floor(Math.random() * 100) + 5,
       subject: "",
       description: "",
       requester: "",
@@ -29,7 +31,6 @@ class AddTask extends React.Component {
       ...state,
       task: {
         ...state.task,
-        id: Math.floor(Math.random() * 100) + 5,
         [name]: isNaN(value) ? value : eval(value)
       }
     }));
@@ -37,7 +38,13 @@ class AddTask extends React.Component {
 
   formSubmit = e => {
     e.preventDefault();
-    this.props.dispatch(addTask(this.state.task));
+
+    if (this.state.isEditing) {
+      this.props.dispatch(editTask(this.state.task));
+    } else {
+      this.props.dispatch(addTask(this.state.task));
+    }
+
     this.setState({ redirectToHome: true });
   };
 
