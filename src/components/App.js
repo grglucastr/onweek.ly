@@ -61,7 +61,7 @@ class App extends Component {
             <Route exact path="/" component={TaskHome} />
             <Route exact path="/tasks" component={TaskHome} />
             <Route path="/tasks/:id" component={TaskDetail} />
-            <Route path="/tasks/add" component={TaskForm} />
+            <Route path="/add-tasks" component={TaskForm} />
           </Switch>
           <AppFooter />
         </Fragment>
