@@ -6,7 +6,12 @@ import "./Base.css";
 
 class AddTask extends React.Component {
   state = {
-    task: {
+    task: this.props.task ? this.props.task : this.initialTask(),
+    redirectToHome: false
+  };
+
+  initialTask() {
+    return {
       subject: "",
       description: "",
       requester: "",
@@ -15,9 +20,8 @@ class AddTask extends React.Component {
       startDate: "",
       expectedEndDate: "",
       remark: ""
-    },
-    redirectToHome: false
-  };
+    };
+  }
 
   onInputChange = e => {
     const { name, value } = e.target;
@@ -182,4 +186,17 @@ class AddTask extends React.Component {
   }
 }
 
-export default connect()(AddTask);
+function mapStateToProps(tasks, props) {
+  const { id: taskId } = props.match.params;
+  let task = {};
+
+  if (taskId) {
+    task = tasks.filter(x => x.id === eval(taskId));
+  }
+
+  return {
+    task: task.length > 0 ? task[0] : null
+  };
+}
+
+export default connect(mapStateToProps)(AddTask);
