@@ -4,8 +4,9 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import AppHeader from "./AppHeader";
 import AppFooter from "./AppFooter";
-import TaskHome from "./TaskHome";
+import TaskDetail from "./TaskDetail";
 import TaskForm from "./TaskForm";
+import TaskHome from "./TaskHome";
 
 import { listTasks } from "../actions/tasks";
 
@@ -59,6 +60,7 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={TaskHome} />
             <Route exact path="/tasks" component={TaskHome} />
+            <Route path="/tasks/:id" component={TaskDetail} />
             <Route path="/tasks/add" component={TaskForm} />
           </Switch>
           <AppFooter />

@@ -1,5 +1,8 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+
+import TaskDetail from "./TaskDetail";
 
 class Home extends Component {
   render() {
@@ -20,21 +23,27 @@ class Home extends Component {
         <p>Plan</p>
         <ul>
           {planTasks.map((task, idx) => (
-            <li key={idx}>{task.subject}</li>
+            <li key={idx}>
+              <Link to={`/tasks/${task.id}`}>{task.subject}</Link>
+            </li>
           ))}
         </ul>
 
         <p>In Progress</p>
         <ul>
           {progressTasks.map((task, idx) => (
-            <li key={idx}>{task.subject}</li>
+            <li key={idx}>
+              <Link to={`/tasks/${task.id}`}>{task.subject}</Link>
+            </li>
           ))}
         </ul>
 
         <p>Done</p>
         <ul>
           {doneTasks.map((task, idx) => (
-            <li key={idx}>{task.subject}</li>
+            <li key={idx}>
+              <Link to={`/tasks/${task.id}`}>{task.subject}</Link>
+            </li>
           ))}
         </ul>
       </div>

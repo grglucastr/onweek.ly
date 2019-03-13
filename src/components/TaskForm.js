@@ -25,6 +25,7 @@ class AddTask extends React.Component {
       ...state,
       task: {
         ...state.task,
+        id: Math.floor(Math.random() * 100) + 5,
         [name]: isNaN(value) ? value : eval(value)
       }
     }));
