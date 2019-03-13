@@ -1,12 +1,31 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
+
+import { deleteTask } from "../actions/tasks";
 
 import "./Base.css";
 
 class TaskDetail extends React.Component {
+  state = {
+    redirectToHome: false
+  };
+
+  delete = taskId => {
+    const confirm = window.confirm("Are you  nuts???");
+    if (confirm) {
+      this.props.dispatch(deleteTask(parseInt(taskId)));
+      this.setState({ redirectToHome: true });
+    }
+  };
+
   render() {
     const { task } = this.props;
+    const { redirectToHome } = this.state;
+
+    if (redirectToHome) {
+      return <Redirect to="/" />;
+    }
 
     if (!task) {
       return <h3>Task not found.</h3>;
@@ -15,6 +34,11 @@ class TaskDetail extends React.Component {
     return (
       <div>
         <h3>{task.subject}</h3>[<Link to={`/tasks/${task.id}/edit`}>Edit</Link>]
+        [
+        <a href="#" onClick={() => this.delete(task.id)}>
+          Delete
+        </a>
+        ]
         {task.status === 1 ? (
           <span className="task-status-link">
             [<Link to={`/tasks/${task.id}/edit`}>Start In Progress</Link>]

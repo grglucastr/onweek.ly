@@ -1,4 +1,4 @@
-import { LIST_TASKS, ADD_TASK, EDIT_TASK } from "../actions/tasks";
+import { LIST_TASKS, ADD_TASK, EDIT_TASK, DELETE_TASK } from "../actions/tasks";
 
 export default function tasks(state = [], action) {
   switch (action.type) {
@@ -12,6 +12,9 @@ export default function tasks(state = [], action) {
       return state.map(task =>
         task.id === action.task.id ? action.task : task
       );
+
+    case DELETE_TASK:
+      return state.filter(tasks => tasks.id !== action.taskId);
 
     default:
       return state;

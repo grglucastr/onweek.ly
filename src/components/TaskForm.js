@@ -11,6 +11,12 @@ class AddTask extends React.Component {
     isEditing: this.props.task ? true : false
   };
 
+  componentDidMount() {
+    const { id: taskId } = this.props.match.params;
+
+    console.log("taskid", taskId);
+  }
+
   initialTask() {
     return {
       id: Math.floor(Math.random() * 100) + 5,

@@ -15,16 +15,18 @@ const tasks = [
     id: 1,
     subject: "Fix Access Point",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    start_date: "2019-03-12",
-    expected_end_date: "2019-03-15",
+    requester: "ramon.c",
+    startDate: "2019-03-12",
+    expectedEndDate: "2019-03-14",
+    remark: "",
     status: 1
   },
   {
     id: 2,
     subject: "Ip Connection Problem",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    start_date: "2019-03-11",
-    expected_end_date: "2019-03-13",
+    startDate: "2019-03-11",
+    expectedEndDate: "2019-03-13",
     status: 2
   },
 
@@ -32,8 +34,8 @@ const tasks = [
     id: 3,
     subject: "Add Corp proxy for new PCs",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    start_date: "2019-03-12",
-    expected_end_date: "2019-03-12",
+    startDate: "2019-03-12",
+    expectedEndDate: "2019-03-12",
     status: 2
   },
 
@@ -41,8 +43,8 @@ const tasks = [
     id: 4,
     subject: "Fix proxy breaches",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    start_date: "2019-03-12",
-    expected_end_date: "2019-03-14",
+    startDate: "2019-03-12",
+    expectedEndDate: "2019-03-14",
     status: 3
   }
 ];
@@ -62,7 +64,7 @@ class App extends Component {
             <Route exact path="/tasks" component={TaskHome} />
             <Route path="/add-tasks" component={TaskForm} />
             <Route exact path="/tasks/:id" component={TaskDetail} />
-            <Route path="/tasks/:id/edit" component={TaskForm} />
+            <Route exact path="/tasks/:id/edit" component={TaskForm} />
           </Switch>
           <AppFooter />
         </Fragment>
