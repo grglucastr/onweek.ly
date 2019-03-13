@@ -58,6 +58,7 @@ class AddTask extends React.Component {
           <div>
             <label htmlFor="subject">Subject:</label>
             <input
+              type="text"
               value={this.state.task.subject}
               onChange={this.onInputChange}
               id="subject"
@@ -78,6 +79,7 @@ class AddTask extends React.Component {
           <div>
             <label htmlFor="requester">Requester:</label>
             <input
+              type="text"
               value={this.state.task.requester}
               onChange={this.onInputChange}
               id="requester"
@@ -155,6 +157,7 @@ class AddTask extends React.Component {
           <div>
             <label htmlFor="start-date">Start Date:</label>
             <input
+              type="text"
               value={this.state.task.startDate}
               onChange={this.onInputChange}
               id="start-date"
@@ -165,6 +168,7 @@ class AddTask extends React.Component {
           <div>
             <label htmlFor="expected-end-date">Expected End Date:</label>
             <input
+              type="text"
               value={this.state.task.expectedEndDate}
               onChange={this.onInputChange}
               id="expected-end-date"
