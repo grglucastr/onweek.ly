@@ -4,6 +4,10 @@ import { connect } from "react-redux";
 
 import TaskDetail from "./TaskDetail";
 
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+
 class Home extends Component {
   render() {
     const { tasks } = this.props;
@@ -18,7 +22,33 @@ class Home extends Component {
     }
 
     return (
-      <div>
+      <Container>
+        <Row>
+          <Col>
+            <h4 className="text-center">Plan</h4>
+          </Col>
+          <Col>
+            <h4 className="text-center">In Progress</h4>
+          </Col>
+          <Col>
+            <h4 className="text-center">Done</h4>
+          </Col>
+        </Row>
+      </Container>
+    );
+  }
+}
+
+function mapStateToProps(tasks) {
+  return { tasks };
+}
+
+export default connect(mapStateToProps)(Home);
+
+{
+  /**
+ * 
+ * <div>
         <h3>Tasks Listing Home</h3>
         <p>Plan</p>
         <ul>
@@ -47,12 +77,6 @@ class Home extends Component {
           ))}
         </ul>
       </div>
-    );
-  }
+ * 
+ */
 }
-
-function mapStateToProps(tasks) {
-  return { tasks };
-}
-
-export default connect(mapStateToProps)(Home);
