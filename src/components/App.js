@@ -81,9 +81,7 @@ class App extends Component {
           </Row>
 
           <Row>
-            <Col>
-              <AppFooter />
-            </Col>
+            <Col>{/*<AppFooter />*/}</Col>
           </Row>
         </Container>
       </Router>
