@@ -63,8 +63,12 @@ class AddTask extends React.Component {
         <Col>
           <div style={{ padding: 10 }}>
             {this.state.redirectToHome ? <Redirect to="/" /> : ""}
-            <h3>Task Info Details</h3>
-            <Form onSubmit={this.formSubmit} style={{ width: "70%" }}>
+
+            <Form
+              onSubmit={this.formSubmit}
+              style={{ width: "85%", marginTop: "20px", marginLeft: "15px" }}
+            >
+              <h3>Task Info Details</h3>
               <Form.Group>
                 <Form.Label htmlFor="subject">Subject:</Form.Label>
                 <Form.Control

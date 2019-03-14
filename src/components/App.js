@@ -61,7 +61,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <Container fluid={true} style={{ padding: 0 }}>
+        <Container fluid={true}>
           <Row>
             <Col>
               <AppHeader />
