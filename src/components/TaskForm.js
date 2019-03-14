@@ -3,6 +3,14 @@ import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { addTask, editTask } from "../actions/tasks";
 
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import ToggleButtonGroup from "react-bootstrap/ToggleButtonGroup";
+import ToggleButton from "react-bootstrap/ToggleButton";
+
 class AddTask extends React.Component {
   state = {
     task: this.props.task ? this.props.task : this.initialTask(),
@@ -12,8 +20,6 @@ class AddTask extends React.Component {
 
   componentDidMount() {
     const { id: taskId } = this.props.match.params;
-
-    console.log("taskid", taskId);
   }
 
   initialTask() {
@@ -43,161 +49,153 @@ class AddTask extends React.Component {
 
   formSubmit = e => {
     e.preventDefault();
-
     if (this.state.isEditing) {
       this.props.dispatch(editTask(this.state.task));
     } else {
       this.props.dispatch(addTask(this.state.task));
     }
-
     this.setState({ redirectToHome: true });
   };
 
   render() {
     return (
-      <div className="border-spacing">
-        {this.state.redirectToHome ? <Redirect to="/" /> : ""}
+      <Row>
+        <Col>
+          <div style={{ padding: 10 }}>
+            {this.state.redirectToHome ? <Redirect to="/" /> : ""}
+            <h3>Task Info Details</h3>
+            <Form onSubmit={this.formSubmit} style={{ width: "70%" }}>
+              <Form.Group>
+                <Form.Label htmlFor="subject">Subject:</Form.Label>
+                <Form.Control
+                  type="text"
+                  value={this.state.task.subject}
+                  onChange={this.onInputChange}
+                  id="subject"
+                  name="subject"
+                  placeholder="Fix Access Point"
+                />
+              </Form.Group>
+              <Form.Group>
+                <Form.Label htmlFor="description">Description:</Form.Label>
+                <Form.Control
+                  as="textarea"
+                  value={this.state.task.description}
+                  onChange={this.onInputChange}
+                  id="description"
+                  name="description"
+                  cols="30"
+                  rows="4"
+                />
+              </Form.Group>
+              <Form.Group>
+                <Form.Label htmlFor="requester">Requester:</Form.Label>
+                <Form.Control
+                  id="requester"
+                  name="requester"
+                  maxLength={15}
+                  style={{ width: "30%" }}
+                  value={this.state.task.requester}
+                  onChange={this.onInputChange}
+                />
+                <Form.Text>Employee No. or MySingle ID</Form.Text>
+              </Form.Group>
+              <Form.Group>
+                <Form.Label htmlFor="type-voc">Type:</Form.Label>
+                <div>
+                  <ToggleButtonGroup type="radio" name="type" defaultValue={1}>
+                    <ToggleButton onChange={this.onInputChange} value={1}>
+                      VOC
+                    </ToggleButton>
+                    <ToggleButton onChange={this.onInputChange} value={2}>
+                      Issue
+                    </ToggleButton>
+                  </ToggleButtonGroup>
+                </div>
+              </Form.Group>
 
-        <h3>New Task</h3>
-        <form onSubmit={this.formSubmit}>
-          <div>
-            <label htmlFor="subject">Subject:</label>
-            <input
-              type="text"
-              value={this.state.task.subject}
-              onChange={this.onInputChange}
-              id="subject"
-              name="subject"
-            />
+              <Form.Group>
+                <Form.Label htmlFor="status-plan">Current Status:</Form.Label>
+                <div>
+                  <ToggleButtonGroup
+                    type="radio"
+                    name="status"
+                    id="status-plan"
+                    defaultValue={1}
+                  >
+                    <ToggleButton onChange={this.onInputChange} value={1}>
+                      Plan
+                    </ToggleButton>
+                    <ToggleButton onChange={this.onInputChange} value={2}>
+                      In Progress
+                    </ToggleButton>
+                    <ToggleButton onChange={this.onInputChange} value={3}>
+                      Done
+                    </ToggleButton>
+                  </ToggleButtonGroup>
+                </div>
+              </Form.Group>
+
+              <Form.Group>
+                <Form.Label htmlFor="start-date">Start Date:</Form.Label>
+                <Form.Control
+                  id="start-date"
+                  name="startDate"
+                  type="text"
+                  maxLength={10}
+                  value={this.state.task.startDate}
+                  onChange={this.onInputChange}
+                  style={{ width: "30%" }}
+                />
+              </Form.Group>
+
+              <Form.Group>
+                <Form.Label htmlFor="expected-end-date">
+                  Expected End Date:
+                </Form.Label>
+                <Form.Control
+                  id="expected-end-date"
+                  name="expectedEndDate"
+                  type="text"
+                  maxLength={10}
+                  value={this.state.task.expectedEndDate}
+                  onChange={this.onInputChange}
+                  style={{ width: "30%" }}
+                />
+              </Form.Group>
+
+              <Form.Group>
+                <Form.Label htmlFor="remark">Remark:</Form.Label>
+                <Form.Control
+                  as="textarea"
+                  value={this.state.task.remark}
+                  onChange={this.onInputChange}
+                  id="remark"
+                  name="remark"
+                  cols="30"
+                  rows="4"
+                />
+              </Form.Group>
+
+              <Row>
+                <Col>
+                  <Button
+                    variant="secondary"
+                    onClick={() => this.props.history.push("/")}
+                  >
+                    Cancel
+                  </Button>
+                </Col>
+
+                <Col style={{ textAlign: "right" }}>
+                  <Button variant="primary">Save</Button>
+                </Col>
+              </Row>
+            </Form>
           </div>
-          <div>
-            <label htmlFor="description">Description:</label>
-            <textarea
-              value={this.state.task.description}
-              onChange={this.onInputChange}
-              id="description"
-              name="description"
-              cols="30"
-              rows="8"
-            />
-          </div>
-          <div>
-            <label htmlFor="requester">Requester:</label>
-            <input
-              type="text"
-              value={this.state.task.requester}
-              onChange={this.onInputChange}
-              id="requester"
-              name="requester"
-            />
-          </div>
-          <div>
-            <label htmlFor="type-voc">Type:</label>
-
-            <label htmlFor="type-voc">
-              <input
-                checked={this.state.task.type === 1}
-                onChange={this.onInputChange}
-                type="radio"
-                id="type-voc"
-                name="type"
-                value="1"
-              />
-              VOC
-            </label>
-
-            <label htmlFor="type-issue">
-              <input
-                checked={this.state.task.type === 2}
-                onChange={this.onInputChange}
-                type="radio"
-                id="type-issue"
-                name="type"
-                value="2"
-              />
-              Issue
-            </label>
-          </div>
-
-          <div>
-            <label htmlFor="status-plan">Current Status:</label>
-
-            <label htmlFor="status-plan">
-              <input
-                checked={this.state.task.status === 1}
-                onChange={this.onInputChange}
-                type="radio"
-                id="status-plan"
-                name="status"
-                value="1"
-              />{" "}
-              Plan
-            </label>
-
-            <label htmlFor="status-progress">
-              <input
-                checked={this.state.task.status === 2}
-                onChange={this.onInputChange}
-                type="radio"
-                id="status-progress"
-                name="status"
-                value="2"
-              />{" "}
-              In Progress
-            </label>
-
-            <label htmlFor="status-done">
-              <input
-                checked={this.state.task.status === 3}
-                onChange={this.onInputChange}
-                type="radio"
-                id="status-done"
-                name="status"
-                value="3"
-              />{" "}
-              Done
-            </label>
-          </div>
-
-          <div>
-            <label htmlFor="start-date">Start Date:</label>
-            <input
-              type="text"
-              value={this.state.task.startDate}
-              onChange={this.onInputChange}
-              id="start-date"
-              name="startDate"
-            />
-          </div>
-
-          <div>
-            <label htmlFor="expected-end-date">Expected End Date:</label>
-            <input
-              type="text"
-              value={this.state.task.expectedEndDate}
-              onChange={this.onInputChange}
-              id="expected-end-date"
-              name="expectedEndDate"
-            />
-          </div>
-
-          <div>
-            <label htmlFor="remark">Remark:</label>
-            <textarea
-              value={this.state.task.remark}
-              onChange={this.onInputChange}
-              id="remark"
-              name="remark"
-              cols="30"
-              rows="8"
-            />
-          </div>
-
-          <Link to="/">Cancel</Link>
-
-          <button>Save</button>
-        </form>
-      </div>
+        </Col>
+        <Col>&nbsp;</Col>
+      </Row>
     );
   }
 }
