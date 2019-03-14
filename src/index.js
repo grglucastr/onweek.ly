@@ -7,6 +7,8 @@ import App from "./components/App";
 
 import taskReducer from "./reducers/tasks";
 
+import "bootstrap/dist/css/bootstrap.css";
+
 const store = createStore(taskReducer);
 
 ReactDOM.render(

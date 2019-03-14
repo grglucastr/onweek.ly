@@ -2,6 +2,10 @@ import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+
 import AppHeader from "./AppHeader";
 import AppFooter from "./AppFooter";
 import TaskDetail from "./TaskDetail";
@@ -57,17 +61,31 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <Fragment>
-          <AppHeader />
-          <Switch>
-            <Route exact path="/" component={TaskHome} />
-            <Route exact path="/tasks" component={TaskHome} />
-            <Route path="/add-tasks" component={TaskForm} />
-            <Route exact path="/tasks/:id" component={TaskDetail} />
-            <Route exact path="/tasks/:id/edit" component={TaskForm} />
-          </Switch>
-          <AppFooter />
-        </Fragment>
+        <Container>
+          <Row>
+            <Col>
+              <AppHeader />
+            </Col>
+          </Row>
+
+          <Row>
+            <Col>
+              <Switch>
+                <Route exact path="/" component={TaskHome} />
+                <Route exact path="/tasks" component={TaskHome} />
+                <Route path="/add-tasks" component={TaskForm} />
+                <Route exact path="/tasks/:id" component={TaskDetail} />
+                <Route exact path="/tasks/:id/edit" component={TaskForm} />
+              </Switch>
+            </Col>
+          </Row>
+
+          <Row>
+            <Col>
+              <AppFooter />
+            </Col>
+          </Row>
+        </Container>
       </Router>
     );
   }
