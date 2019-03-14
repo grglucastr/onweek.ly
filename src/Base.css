@@ -27,3 +27,12 @@ a:hover {
   padding: 0px !important;
   margin: 0px !important;
 }
+
+.container-status {
+  display: flex;
+  justify-content: space-around;
+}
+
+.container-status-col {
+  width: 32%;
+}

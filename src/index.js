@@ -4,7 +4,6 @@ import { createStore } from "redux";
 import { Provider } from "react-redux";
 
 import App from "./components/App";
-
 import taskReducer from "./reducers/tasks";
 
 import "bootstrap/dist/css/bootstrap.css";
