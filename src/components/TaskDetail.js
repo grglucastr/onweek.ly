@@ -4,8 +4,6 @@ import { Link, Redirect } from "react-router-dom";
 
 import { deleteTask } from "../actions/tasks";
 
-import "./Base.css";
-
 class TaskDetail extends React.Component {
   state = {
     redirectToHome: false

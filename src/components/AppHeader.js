@@ -1,33 +1,29 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Button";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
 
 function AppHeader(props) {
   return (
-    <Container>
-      <Row>
-        <Col>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/tasks/">Tasks</Link>
-            </li>
-            <li>
-              <Link to="/add-tasks/">Add Task</Link>
-            </li>
-          </ul>
-        </Col>
-        <Col>
-          <Button variant="primary">Primary</Button>
-        </Col>
-      </Row>
-    </Container>
+    <>
+      <Navbar bg="dark" variant="dark">
+        <Navbar.Brand>OnWeek.ly</Navbar.Brand>
+        <Nav className="mr-auto">
+          <Link to="/">
+            <Nav.Link as="span">Home</Nav.Link>
+          </Link>
+
+          <Link to="/tasks">
+            <Nav.Link as="span">Tasks</Nav.Link>
+          </Link>
+
+          <Link to="/add-tasks">
+            <Nav.Link as="span">Add Task</Nav.Link>
+          </Link>
+        </Nav>
+      </Navbar>
+    </>
   );
 }
 

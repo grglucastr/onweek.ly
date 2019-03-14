@@ -2,7 +2,6 @@ import React from "react";
 import { Link, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { addTask, editTask } from "../actions/tasks";
-import "./Base.css";
 
 class AddTask extends React.Component {
   state = {

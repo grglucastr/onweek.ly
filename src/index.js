@@ -8,6 +8,7 @@ import App from "./components/App";
 import taskReducer from "./reducers/tasks";
 
 import "bootstrap/dist/css/bootstrap.css";
+import "./Base.css";
 
 const store = createStore(taskReducer);
 

@@ -11,6 +11,11 @@
   color: #000;
 }
 
+a:hover {
+  text-transform: none !important;
+  font-style: none;
+}
+
 .task-status-link {
   display: inline-block;
   margin-left: 5px;
