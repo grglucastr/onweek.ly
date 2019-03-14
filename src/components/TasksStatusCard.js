@@ -11,7 +11,7 @@ const TasksStatusCard = props => {
         <Card.Title>{props.description}</Card.Title>
         <ListGroup>
           {props.tasks.map(task => (
-            <ListGroup.Item action key={task.id} href="#">
+            <ListGroup.Item action key={task.id} href={`#task_${task.id}`}>
               {task.subject}
             </ListGroup.Item>
           ))}

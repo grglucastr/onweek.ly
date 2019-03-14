@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
+
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -32,7 +35,12 @@ class Home extends Component {
         <Row>
           <Col>
             <div className="pl-2 mt-2">
-              <Button variant="primary">Add Task</Button>
+              <Button
+                variant="primary"
+                onClick={() => this.props.history.push("/add-tasks")}
+              >
+                <FontAwesomeIcon icon={faPlusCircle} /> Add Task
+              </Button>
             </div>
           </Col>
         </Row>
