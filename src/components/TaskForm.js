@@ -11,6 +11,9 @@ import Form from "react-bootstrap/Form";
 import ToggleButtonGroup from "react-bootstrap/ToggleButtonGroup";
 import ToggleButton from "react-bootstrap/ToggleButton";
 
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+
 class AddTask extends React.Component {
   state = {
     task: this.props.task ? this.props.task : this.initialTask(),
@@ -142,14 +145,14 @@ class AddTask extends React.Component {
 
               <Form.Group>
                 <Form.Label htmlFor="start-date">Start Date:</Form.Label>
-                <Form.Control
+                <DatePicker
                   id="start-date"
                   name="startDate"
                   type="text"
-                  maxLength={10}
-                  value={this.state.task.startDate}
+                  autoComplete={false}
+                  selected={this.state.task.startDate}
                   onChange={this.onInputChange}
-                  style={{ width: "30%" }}
+                  minDate={new Date()}
                 />
               </Form.Group>
 

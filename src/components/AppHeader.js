@@ -8,7 +8,9 @@ function AppHeader(props) {
   return (
     <>
       <Navbar bg="dark" variant="dark">
-        <Navbar.Brand>OnWeek.ly</Navbar.Brand>
+        <Link to="/">
+          <Navbar.Brand>OnWeek.ly</Navbar.Brand>
+        </Link>
         <Nav className="mr-auto">
           <Link to="/">
             <Nav.Link as="span">Home</Nav.Link>
