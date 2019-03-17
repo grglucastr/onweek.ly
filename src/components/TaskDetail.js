@@ -1,8 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 import { deleteTask } from "../actions/tasks";
+import TaskDetailInfo from "./TaskDetailInfo";
 
 class TaskDetail extends React.Component {
   state = {
@@ -30,32 +31,7 @@ class TaskDetail extends React.Component {
     }
 
     return (
-      <div>
-        <h3>{task.subject}</h3>[<Link to={`/tasks/${task.id}/edit`}>Edit</Link>]
-        [
-        <a href="#" onClick={() => this.delete(task.id)}>
-          Delete
-        </a>
-        ]
-        {task.status === 1 ? (
-          <span className="task-status-link">
-            [<Link to={`/tasks/${task.id}/edit`}>Start In Progress</Link>]
-          </span>
-        ) : task.status === 2 ? (
-          <span className="task-status-link">
-            [<Link to={`/tasks/${task.id}/edit`}>Done</Link>]
-          </span>
-        ) : (
-          <span className="task-status-link">
-            [<Link to={`/tasks/${task.id}/edit`}>Reopen Task</Link>]
-          </span>
-        )}
-        <div>
-          <p>Date Start: 2019-03-14 </p>
-          <p>End Date: 2019-03-22 (Expected)</p>
-        </div>
-        <p>{task.description}</p>
-      </div>
+      <TaskDetailInfo task={task} />
     );
   }
 }
