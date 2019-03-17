@@ -2,14 +2,7 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { addTask, editTask } from "../actions/tasks";
-
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
-
-import Button from "react-bootstrap/Button";
-import Form from "react-bootstrap/Form";
-import ToggleButtonGroup from "react-bootstrap/ToggleButtonGroup";
-import ToggleButton from "react-bootstrap/ToggleButton";
+import { Row, Col, Button, Form, ToggleButtonGroup, ToggleButton } from 'react-bootstrap';
 
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -27,8 +20,8 @@ class AddTask extends React.Component {
       subject: "",
       description: "",
       requester: "",
-      type: "",
-      status: "",
+      type: 1,
+      status: 1,
       startDate: "",
       expectedEndDate: "",
       remark: ""
@@ -126,7 +119,7 @@ class AddTask extends React.Component {
               <Form.Group>
                 <Form.Label htmlFor="type-voc">Type:</Form.Label>
                 <div>
-                  <ToggleButtonGroup type="radio" name="type" defaultValue={1}>
+                  <ToggleButtonGroup type="radio" name="type" defaultValue={this.state.task.type}>
                     <ToggleButton onChange={this.onInputChange} value={1}>
                       VOC
                     </ToggleButton>
@@ -144,7 +137,7 @@ class AddTask extends React.Component {
                     type="radio"
                     name="status"
                     id="status-plan"
-                    defaultValue={1}
+                    defaultValue={this.state.task.status}
                   >
                     <ToggleButton onChange={this.onInputChange} value={1}>
                       Plan

@@ -22,7 +22,8 @@ const tasks = [
     startDate: new Date("2019-03-12"),
     expectedEndDate: new Date("2019-03-14"),
     remark: "",
-    status: 1
+    status: 1,
+    type: 2,
   },
   {
     id: 2,
@@ -30,7 +31,8 @@ const tasks = [
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     startDate: new Date("2019-03-11"),
     expectedEndDate: new Date("2019-03-13"),
-    status: 2
+    status: 2,
+    type: 2,
   },
 
   {
@@ -39,7 +41,8 @@ const tasks = [
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     startDate: new Date("2019-03-12"),
     expectedEndDate: new Date("2019-03-12"),
-    status: 2
+    status: 2,
+    type: 1,
   },
 
   {
@@ -48,7 +51,8 @@ const tasks = [
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     startDate: new Date("2019-03-12"),
     expectedEndDate: new Date("2019-03-14"),
-    status: 3
+    status: 3,
+    type: 1,
   }
 ];
 
