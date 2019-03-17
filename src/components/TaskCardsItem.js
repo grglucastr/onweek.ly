@@ -1,5 +1,7 @@
 import React from "react"
 
+import { withRouter } from "react-router-dom";
+
 import ListGroup from "react-bootstrap/ListGroup";
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
@@ -13,7 +15,9 @@ class TaskCardsItem extends React.Component {
     showModal: false
   }
 
-
+  editTask = (taskId) => {
+    this.props.history.push(`/tasks/${taskId}/edit`)
+  }
 
   render() {
     const { task }  = this.props;
@@ -26,6 +30,7 @@ class TaskCardsItem extends React.Component {
         </ListGroup.Item>
 
         <Modal
+          size="lg"
           show={this.state.showModal}
           onHide={() => this.setState({showModal: false})}>
           <Modal.Header>
@@ -33,7 +38,9 @@ class TaskCardsItem extends React.Component {
           </Modal.Header>
 
           <Modal.Body>
-            <TaskDetailInfo task={task}  />
+            <TaskDetailInfo 
+              task={task} 
+              onEditTask={(taskId) => this.editTask(taskId)} />
           </Modal.Body>
 
           <Modal.Footer>
@@ -50,4 +57,4 @@ class TaskCardsItem extends React.Component {
   }
 }
 
-export default TaskCardsItem;
+export default withRouter(TaskCardsItem);
