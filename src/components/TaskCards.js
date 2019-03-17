@@ -4,16 +4,18 @@ import { Link } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
 
-const TasksStatusCard = props => {
+import TaskCardsItem from "./TaskCardsItem";
+
+const TaskCards = props => {
   return (
     <Card>
       <Card.Body>
         <Card.Title>{props.description}</Card.Title>
         <ListGroup>
           {props.tasks.map(task => (
-            <ListGroup.Item action key={task.id} href={`#task_${task.id}`}>
-              {task.subject}
-            </ListGroup.Item>
+            <TaskCardsItem 
+              key={task.id}
+              task={task} />
           ))}
         </ListGroup>
       </Card.Body>
@@ -21,4 +23,4 @@ const TasksStatusCard = props => {
   );
 };
 
-export default TasksStatusCard;
+export default TaskCards;

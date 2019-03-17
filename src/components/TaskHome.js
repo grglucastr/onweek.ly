@@ -9,7 +9,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 
-import TasksStatusCard from "./TasksStatusCard";
+import TaskCards from "./TaskCards";
 
 class Home extends Component {
   render() {
@@ -49,16 +49,16 @@ class Home extends Component {
           <Col>
             <div className="container-status mt-4">
               <div className="container-status-col">
-                <TasksStatusCard description="Plan" tasks={planTasks} />
+                <TaskCards description="Plan" tasks={planTasks} />
               </div>
               <div className="container-status-col">
-                <TasksStatusCard
+                <TaskCards
                   description="In Progress"
                   tasks={progressTasks}
                 />
               </div>
               <div className="container-status-col">
-                <TasksStatusCard description="Done" tasks={doneTasks} />
+                <TaskCards description="Done" tasks={doneTasks} />
               </div>
             </div>
           </Col>
