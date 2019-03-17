@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import { connect } from "react-redux";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -7,7 +7,6 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 import AppHeader from "./AppHeader";
-import AppFooter from "./AppFooter";
 import TaskDetail from "./TaskDetail";
 import TaskForm from "./TaskForm";
 import TaskHome from "./TaskHome";

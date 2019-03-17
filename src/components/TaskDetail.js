@@ -38,7 +38,7 @@ class TaskDetail extends React.Component {
 
 function mapStateToProps(tasks, props) {
   const { id } = props.match.params;
-  const task = tasks.filter(x => x.id === eval(id));
+  const task = tasks.filter(x => x.id === parseInt(id));
 
   return {
     task: task.length > 0 ? task[0] : null
