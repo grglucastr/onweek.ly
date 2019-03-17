@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { addTask, editTask } from "../actions/tasks";
 
@@ -21,10 +21,6 @@ class AddTask extends React.Component {
     isEditing: this.props.task ? true : false
   };
 
-  componentDidMount() {
-    const { id: taskId } = this.props.match.params;
-  }
-
   initialTask() {
     return {
       id: Math.floor(Math.random() * 100) + 5,
@@ -45,10 +41,30 @@ class AddTask extends React.Component {
       ...state,
       task: {
         ...state.task,
-        [name]: isNaN(value) ? value : eval(value)
+        [name]: isNaN(value) ? value : parseInt(value)
       }
     }));
   };
+
+  handleStartDateChange = (e) => {
+    this.setState(state => ({
+      ...state,
+      task: {
+        ...state.task,
+        startDate: e
+      }
+    }));
+  }
+
+  handleEndDateChange = (e) => {
+    this.setState(state => ({
+      ...state,
+      task: {
+        ...state.task,
+        expectedEndDate: e
+      }
+    }));
+  }
 
   formSubmit = e => {
     e.preventDefault();
@@ -145,30 +161,32 @@ class AddTask extends React.Component {
 
               <Form.Group>
                 <Form.Label htmlFor="start-date">Start Date:</Form.Label>
-                <DatePicker
-                  id="start-date"
-                  name="startDate"
-                  type="text"
-                  autoComplete={false}
-                  selected={this.state.task.startDate}
-                  onChange={this.onInputChange}
-                  minDate={new Date()}
-                />
+                <div>
+                  <DatePicker
+                    id="start-date"
+                    name="startDate"
+                    type="text"
+                    className="form-control"
+                    dateFormat="yyyy-MM-dd"
+                    selected={this.state.task.startDate}
+                    onChange={this.handleStartDateChange}
+                  />
+                </div>
               </Form.Group>
 
               <Form.Group>
-                <Form.Label htmlFor="expected-end-date">
-                  Expected End Date:
-                </Form.Label>
-                <Form.Control
-                  id="expected-end-date"
-                  name="expectedEndDate"
-                  type="text"
-                  maxLength={10}
-                  value={this.state.task.expectedEndDate}
-                  onChange={this.onInputChange}
-                  style={{ width: "30%" }}
-                />
+                <Form.Label htmlFor="expected-end-date">Expected End Date:</Form.Label>
+                <div>
+                  <DatePicker
+                    id="expected-end-date"
+                    name="expectedEndDate"
+                    type="text"
+                    className="form-control"
+                    dateFormat="yyyy-MM-dd"
+                    selected={this.state.task.expectedEndDate}
+                    onChange={this.handleEndDateChange}
+                  />
+                </div>
               </Form.Group>
 
               <Form.Group>
@@ -212,7 +230,7 @@ function mapStateToProps(tasks, props) {
   let task = {};
 
   if (taskId) {
-    task = tasks.filter(x => x.id === eval(taskId));
+    task = tasks.filter(x => x.id === parseInt(taskId));
   }
 
   return {

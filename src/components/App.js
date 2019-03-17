@@ -19,8 +19,8 @@ const tasks = [
     subject: "Fix Access Point",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     requester: "ramon.c",
-    startDate: "2019-03-12",
-    expectedEndDate: "2019-03-14",
+    startDate: new Date("2019-03-12"),
+    expectedEndDate: new Date("2019-03-14"),
     remark: "",
     status: 1
   },
@@ -28,8 +28,8 @@ const tasks = [
     id: 2,
     subject: "Ip Connection Problem",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    startDate: "2019-03-11",
-    expectedEndDate: "2019-03-13",
+    startDate: new Date("2019-03-11"),
+    expectedEndDate: new Date("2019-03-13"),
     status: 2
   },
 
@@ -37,8 +37,8 @@ const tasks = [
     id: 3,
     subject: "Add Corp proxy for new PCs",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    startDate: "2019-03-12",
-    expectedEndDate: "2019-03-12",
+    startDate: new Date("2019-03-12"),
+    expectedEndDate: new Date("2019-03-12"),
     status: 2
   },
 
@@ -46,8 +46,8 @@ const tasks = [
     id: 4,
     subject: "Fix proxy breaches",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    startDate: "2019-03-12",
-    expectedEndDate: "2019-03-14",
+    startDate: new Date("2019-03-12"),
+    expectedEndDate: new Date("2019-03-14"),
     status: 3
   }
 ];

@@ -8,6 +8,7 @@ import Badge from "react-bootstrap/Badge";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencilAlt, faTrashAlt, faPlayCircle, faCheckCircle, faUndoAlt } from "@fortawesome/free-solid-svg-icons";
 
+import { dateFormat } from '../util';
 
 const renderStatusAction = (task) => {
   switch (task.status) {
@@ -91,8 +92,8 @@ const TaskDetailInfo = ({ task, onEditTask }) => {
                 <td><strong style={{ fontSize: '12px' }}>Due Date: </strong></td>
               </tr>
               <tr>
-                <td><Badge pill variant="secondary">{task.startDate}</Badge></td>
-                <td><Badge pill variant="secondary">{task.expectedEndDate}</Badge></td>
+                <td><Badge pill variant="secondary">{dateFormat(task.startDate)}</Badge></td>
+                <td><Badge pill variant="secondary">{dateFormat(task.expectedEndDate)}</Badge></td>
               </tr>
             </tbody>
           </table>
