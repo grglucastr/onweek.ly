@@ -9,12 +9,12 @@ const TaskCards = props => {
   return (
     <Card>
       <Card.Body>
-        <Card.Title>{props.description}</Card.Title>
+        <Card.Title>
+          {props.description} ({props.tasks.length})
+        </Card.Title>
         <ListGroup>
           {props.tasks.map(task => (
-            <TaskCardsItem 
-              key={task.id}
-              task={task} />
+            <TaskCardsItem key={task.id} task={task} />
           ))}
         </ListGroup>
       </Card.Body>
