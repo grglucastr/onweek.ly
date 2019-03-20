@@ -54,6 +54,9 @@ class TaskCardsItem extends React.Component {
               task={task}
               onEditTask={taskId => this.editTask(taskId)}
               onDeleteTask={taskId => this.deleteTask(taskId)}
+              onTaskDone={() => console.log("On Task Done")}
+              onTaskInProgress={() => console.log("On Task in Progress")}
+              onTaskReopen={() => console.log("On task Reopen")}
             />
           </Modal.Body>
 

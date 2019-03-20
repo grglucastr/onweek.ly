@@ -16,35 +16,28 @@ import {
 
 import { dateFormat } from "../util";
 
-const renderStatusAction = task => {
+const renderStatusAction = (
+  task,
+  onTaskInProgress,
+  onTaskDone,
+  onTaskReopen
+) => {
   switch (task.status) {
     case 1:
       return (
-        <Button
-          size="sm"
-          variant="primary"
-          onClick={() => console.log("add action to start the progress")}
-        >
+        <Button size="sm" variant="primary" onClick={() => onTaskInProgress()}>
           Start Progress <FontAwesomeIcon icon={faPlayCircle} />
         </Button>
       );
     case 2:
       return (
-        <Button
-          size="sm"
-          variant="success"
-          onClick={() => console.log("add action to start the progress")}
-        >
+        <Button size="sm" variant="success" onClick={() => onTaskDone()}>
           Done <FontAwesomeIcon icon={faCheckCircle} />
         </Button>
       );
     case 3:
       return (
-        <Button
-          size="sm"
-          variant="dark"
-          onClick={() => console.log("add action to start the progress")}
-        >
+        <Button size="sm" variant="dark" onClick={() => onTaskReopen()}>
           Reopen Task <FontAwesomeIcon icon={faUndoAlt} />
         </Button>
       );
@@ -98,7 +91,14 @@ const renderTaskStatusBadge = task => {
   }
 };
 
-const TaskDetailInfo = ({ task, onEditTask, onDeleteTask }) => {
+const TaskDetailInfo = ({
+  task,
+  onEditTask,
+  onDeleteTask,
+  onTaskInProgress,
+  onTaskDone,
+  onTaskReopen
+}) => {
   return (
     <>
       <Row>
@@ -129,7 +129,9 @@ const TaskDetailInfo = ({ task, onEditTask, onDeleteTask }) => {
             </Button>
           </div>
         </Col>
-        <Col className="text-right">{renderStatusAction(task)}</Col>
+        <Col className="text-right">
+          {renderStatusAction(task, onTaskInProgress, onTaskDone, onTaskReopen)}
+        </Col>
       </Row>
       <Row>
         <Col style={{ padding: "0px" }}>
