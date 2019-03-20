@@ -25,19 +25,23 @@ const renderStatusAction = (
   switch (task.status) {
     case 1:
       return (
-        <Button size="sm" variant="primary" onClick={() => onTaskInProgress()}>
+        <Button
+          size="sm"
+          variant="primary"
+          onClick={() => onTaskInProgress(task)}
+        >
           Start Progress <FontAwesomeIcon icon={faPlayCircle} />
         </Button>
       );
     case 2:
       return (
-        <Button size="sm" variant="success" onClick={() => onTaskDone()}>
+        <Button size="sm" variant="success" onClick={() => onTaskDone(task)}>
           Done <FontAwesomeIcon icon={faCheckCircle} />
         </Button>
       );
     case 3:
       return (
-        <Button size="sm" variant="dark" onClick={() => onTaskReopen()}>
+        <Button size="sm" variant="dark" onClick={() => onTaskReopen(task)}>
           Reopen Task <FontAwesomeIcon icon={faUndoAlt} />
         </Button>
       );
@@ -135,7 +139,7 @@ const TaskDetailInfo = ({
       </Row>
       <Row>
         <Col style={{ padding: "0px" }}>
-          <table className="mb-2">
+          <table className="mb-4 mt-4">
             <tbody>
               <tr>
                 <td style={{ width: "40px" }}>

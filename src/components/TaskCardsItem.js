@@ -9,11 +9,38 @@ import Button from "react-bootstrap/Button";
 
 import TaskDetailInfo from "./TaskDetailInfo";
 
-import { deleteTask } from "../actions/tasks";
+import { deleteTask, editTask } from "../actions/tasks";
 
 class TaskCardsItem extends React.Component {
   state = {
     showModal: false
+  };
+
+  onTaskDone = task => {
+    const newTask = {
+      ...task,
+      status: 3
+    };
+
+    this.props.dispatch(editTask(newTask));
+  };
+
+  onTaskInProgress = task => {
+    const newTask = {
+      ...task,
+      status: 2
+    };
+
+    this.props.dispatch(editTask(newTask));
+  };
+
+  onTaskReopen = task => {
+    const newTask = {
+      ...task,
+      status: 1
+    };
+
+    this.props.dispatch(editTask(newTask));
   };
 
   editTask = taskId => {
@@ -54,9 +81,9 @@ class TaskCardsItem extends React.Component {
               task={task}
               onEditTask={taskId => this.editTask(taskId)}
               onDeleteTask={taskId => this.deleteTask(taskId)}
-              onTaskDone={() => console.log("On Task Done")}
-              onTaskInProgress={() => console.log("On Task in Progress")}
-              onTaskReopen={() => console.log("On task Reopen")}
+              onTaskDone={task => this.onTaskDone(task)}
+              onTaskInProgress={() => this.onTaskInProgress(task)}
+              onTaskReopen={() => this.onTaskReopen(task)}
             />
           </Modal.Body>
 
