@@ -2,7 +2,14 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { addTask, editTask } from "../actions/tasks";
-import { Row, Col, Button, Form, ToggleButtonGroup, ToggleButton } from 'react-bootstrap';
+import {
+  Row,
+  Col,
+  Button,
+  Form,
+  ToggleButtonGroup,
+  ToggleButton
+} from "react-bootstrap";
 
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -22,8 +29,8 @@ class AddTask extends React.Component {
       requester: "",
       type: 1,
       status: 1,
-      startDate: "",
-      expectedEndDate: "",
+      startDate: new Date(),
+      expectedEndDate: new Date(),
       remark: ""
     };
   }
@@ -39,7 +46,7 @@ class AddTask extends React.Component {
     }));
   };
 
-  handleStartDateChange = (e) => {
+  handleStartDateChange = e => {
     this.setState(state => ({
       ...state,
       task: {
@@ -47,9 +54,9 @@ class AddTask extends React.Component {
         startDate: e
       }
     }));
-  }
+  };
 
-  handleEndDateChange = (e) => {
+  handleEndDateChange = e => {
     this.setState(state => ({
       ...state,
       task: {
@@ -57,10 +64,11 @@ class AddTask extends React.Component {
         expectedEndDate: e
       }
     }));
-  }
+  };
 
   formSubmit = e => {
     e.preventDefault();
+
     if (this.state.isEditing) {
       this.props.dispatch(editTask(this.state.task));
     } else {
@@ -119,7 +127,11 @@ class AddTask extends React.Component {
               <Form.Group>
                 <Form.Label htmlFor="type-voc">Type:</Form.Label>
                 <div>
-                  <ToggleButtonGroup type="radio" name="type" defaultValue={this.state.task.type}>
+                  <ToggleButtonGroup
+                    type="radio"
+                    name="type"
+                    defaultValue={this.state.task.type}
+                  >
                     <ToggleButton onChange={this.onInputChange} value={1}>
                       VOC
                     </ToggleButton>
@@ -168,7 +180,9 @@ class AddTask extends React.Component {
               </Form.Group>
 
               <Form.Group>
-                <Form.Label htmlFor="expected-end-date">Expected End Date:</Form.Label>
+                <Form.Label htmlFor="expected-end-date">
+                  Expected End Date:
+                </Form.Label>
                 <div>
                   <DatePicker
                     id="expected-end-date"
@@ -206,7 +220,9 @@ class AddTask extends React.Component {
                 </Col>
 
                 <Col style={{ textAlign: "right" }}>
-                  <Button variant="primary">Save</Button>
+                  <Button type="submit" variant="primary">
+                    Save
+                  </Button>
                 </Col>
               </Row>
             </Form>
