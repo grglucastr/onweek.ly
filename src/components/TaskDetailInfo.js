@@ -35,9 +35,19 @@ const renderStatusAction = (
       );
     case 2:
       return (
-        <Button size="sm" variant="success" onClick={() => onTaskDone(task)}>
-          Done <FontAwesomeIcon icon={faCheckCircle} />
-        </Button>
+        <>
+          <Button
+            size="sm"
+            variant="dark"
+            className="mr-4"
+            onClick={() => onTaskReopen(task)}
+          >
+            In Plan <FontAwesomeIcon icon={faUndoAlt} />
+          </Button>
+          <Button size="sm" variant="success" onClick={() => onTaskDone(task)}>
+            Done <FontAwesomeIcon icon={faCheckCircle} />
+          </Button>
+        </>
       );
     case 3:
       return (
