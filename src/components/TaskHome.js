@@ -12,6 +12,11 @@ import Button from "react-bootstrap/Button";
 import TaskCards from "./TaskCards";
 
 class Home extends Component {
+  
+  componentDidMount(){
+    console.log("testing mobile code editor kkkk");
+  }
+  
   render() {
     const { tasks } = this.props;
     let planTasks = [];
