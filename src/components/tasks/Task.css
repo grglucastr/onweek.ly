@@ -1,0 +1,11 @@
+.task-item{
+  line-height: 40px;
+  border: 1px solid #000;
+  margin-bottom: 5px;
+
+}
+
+.task-item-info{
+  display: inline-block;  
+  margin-left: 5px;
+}

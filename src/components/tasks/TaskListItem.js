@@ -1,21 +1,29 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 
+import "./Task.css"
+import { dateFormat } from '../../util/';
 
 const TaskListItem = ({task}) => {
   return(
-    <>
-      <div key={task.id} className="task-list-item">
-        <Container fluid="true">
-          <Row>
-            <Col sm={1}></Col>
-            <Col>sadfhakjsdfhjak</Col>
-            <Col>adsfasdf</Col>
-          </Row>
-          
-        </Container>
-      </div>
-    </>
+    <div className="task-item">
+      <Container>
+        <Row>
+          <Col xs={12} sm={1}>
+            <span className="task-item-info">{task.status}</span>
+          </Col>
+          <Col>
+            <div>
+              <span className="task-item-info">{task.subject}</span>
+              
+            </div>
+          </Col>
+          <Col xs={12} sm={1}>
+            <span className="task-item-info">{dateFormat(task.expectedEndDate)}</span>
+          </Col>
+        </Row>
+      </Container>
+    </div>
   )
 }
 
