@@ -8,6 +8,7 @@
   border: 1px solid #ccc;
   margin-bottom: 15px;
   border-radius: 5px;
+  box-shadow: 0px 0px 5px #ccc;
 }
 
 .task-item:hover {
@@ -26,4 +27,10 @@
 .task-item-info-sub label {
   display: block;
   height: 18px;
+}
+
+.task-item-date-status{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

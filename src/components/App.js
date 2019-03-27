@@ -30,9 +30,9 @@ const tasks = [
   {
     id: 2,
     subject: "Ip Connection Problem",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    description: "Donec et sem et felis venenatis lacinia. In mollis augue eu purus lacinia maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sed urna neque. Morbi eu quam bibendum, pharetra sapien a, rhoncus mi. Donec a maximus massa. Pellentesque luctus tortor a dolor ultricies tristique. Sed aliquet non tortor quis rutrum. Nunc mollis ut arcu sed rutrum. Sed ut aliquam orci, a laoreet neque. Etiam non rutrum tortor, in consectetur augue. ",
     startDate: new Date("2019-03-11"),
-    expectedEndDate: new Date("2019-03-13"),
+    expectedEndDate: new Date("2019-04-13"),
     status: 2,
     type: 2,
   },
@@ -50,7 +50,7 @@ const tasks = [
   {
     id: 4,
     subject: "Fix proxy breaches",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    description: "Donec et sem et felis venenatis lacinia. In mollis augue eu purus lacinia maximus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sed urna neque. Morbi eu quam bibendum, pharetra sapien a, rhoncus mi. Donec a maximus massa. Pellentesque luctus tortor a dolor ultricies tristique. Sed aliquet non tortor quis rutrum. Nunc mollis ut arcu sed rutrum. Sed ut aliquam orci, a laoreet neque. Etiam non rutrum tortor, in consectetur augue. ",
     startDate: new Date("2019-03-12"),
     expectedEndDate: new Date("2019-03-14"),
     status: 3,

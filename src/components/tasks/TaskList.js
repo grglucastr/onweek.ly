@@ -3,6 +3,11 @@ import TaskListItem from "./TaskListItem";
 import { connect } from "react-redux";
 
 class TaskList extends Component {
+
+  callThisAction = (task) =>{
+    console.log(`Task selected ${task.id}`);
+  }
+
   render() {
     const { tasks } = this.props;
 
@@ -13,9 +18,7 @@ class TaskList extends Component {
             <TaskListItem
               key={task.id}
               task={task}
-              onClick={() => {
-                return console.log("sadfasdfasdf");
-              }}
+              onSelected={(task) => this.callThisAction(task)}
             />
           ))}
         </div>
