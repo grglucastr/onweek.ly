@@ -1,31 +1,31 @@
-import React, { Component } from 'react';
-import TaskListItem from './TaskListItem';
-import { connect } from 'react-redux';
-
-
+import React, { Component } from "react";
+import TaskListItem from "./TaskListItem";
+import { connect } from "react-redux";
 
 class TaskList extends Component {
-
-  render(){
-
+  render() {
     const { tasks } = this.props;
-    
-    return( 
+
+    return (
       <>
         <div className="task-list-container mt-4">
-          {
-            tasks.map(task => (
-              <TaskListItem key={task.id} task={task} />
-            ))
-          }
+          {tasks.map(task => (
+            <TaskListItem
+              key={task.id}
+              task={task}
+              onClick={() => {
+                return console.log("sadfasdfasdf");
+              }}
+            />
+          ))}
         </div>
       </>
-    )
+    );
   }
 }
 
-function mapStateToProps(tasks){
-  return {tasks};
+function mapStateToProps(tasks) {
+  return { tasks };
 }
 
 export default connect(mapStateToProps)(TaskList);

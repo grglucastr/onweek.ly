@@ -51,13 +51,13 @@ const TaskListItem = ({ task }) => {
             <Row>
               <Col>
                 <div className="task-item-info-sub">
-                  <label for="">Requester: </label>
-                  <span class="text-muted">george.l</span>
+                  <label>Requester: </label>
+                  <span className="text-muted">george.l</span>
                 </div>
               </Col>
               <Col>
                 <div className="task-item-info-sub">
-                  <label for="">Type: </label>
+                  <label>Type: </label>
                   <div className="bagde-area">
                     {renderBadgeTaskType(task.type)}
                   </div>
@@ -65,14 +65,18 @@ const TaskListItem = ({ task }) => {
               </Col>
               <Col>
                 <div className="task-item-info-sub">
-                  <label for="">Date Inserted: </label>
-                  <span class="text-muted">{dateFormat(task.startDate)}</span>
+                  <label>Date Inserted: </label>
+                  <span className="text-muted">
+                    {dateFormat(task.startDate)}
+                  </span>
                 </div>
               </Col>
               <Col>
                 <div className="task-item-info-sub">
-                  <label for="">Plan Date Start: </label>
-                  <span class="text-muted">{dateFormat(task.startDate)}</span>
+                  <label>Plan Date Start: </label>
+                  <span className="text-muted">
+                    {dateFormat(task.startDate)}
+                  </span>
                 </div>
               </Col>
             </Row>
