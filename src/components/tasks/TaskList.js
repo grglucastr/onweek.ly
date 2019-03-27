@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import TaskListItem from './TaskListItem';
 import { connect } from 'react-redux';
+
 
 
 class TaskList extends Component {
@@ -13,9 +15,7 @@ class TaskList extends Component {
         <div className="task-list-container mt-4">
           {
             tasks.map(task => (
-              <div key={task.id} className="task-list-item">
-                { task.subject }
-              </div>
+              <TaskListItem key={task.id} task={task} />
             ))
           }
         </div>
