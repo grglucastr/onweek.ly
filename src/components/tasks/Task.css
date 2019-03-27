@@ -1,11 +1,29 @@
-.task-item{
-  line-height: 40px;
-  border: 1px solid #000;
-  margin-bottom: 5px;
-
+.bagde-area {
+  font-size: 20px;
+  vertical-align: middle;
 }
 
-.task-item-info{
-  display: inline-block;  
+.task-item {
+  line-height: 40px;
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
+  border-radius: 5px;
+}
+
+.task-item:hover {
+  cursor: pointer;
+}
+
+.task-item-info {
+  display: inline-block;
   margin-left: 5px;
+}
+
+.task-item-info-sub {
+  font-size: 14px;
+}
+
+.task-item-info-sub label {
+  display: block;
+  height: 18px;
 }
