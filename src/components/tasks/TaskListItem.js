@@ -39,10 +39,10 @@ const renderBadgeTaskDue = expectedEndDate => {
 
 const TaskListItem = ({ task, onSelected }) => {
   return (
-    <div onClick={() => onSelected(task)}>
-      <Container className="task-item ">
+    <div onClick={() => onSelected(task)} className="mb-4">
+      <Container fluid="true" className="task-item">
         <Row>
-          <Col xs={12} sm={2} className="p-0">
+          <Col xs={12} sm={2} className="d-flex flex-column align-items-center justify-content-center">
             <div className="text-muted mt-1" style={{ height: "30px" }}>
               #{task.id}
             </div>
@@ -55,21 +55,21 @@ const TaskListItem = ({ task, onSelected }) => {
               <Col>
                 <strong className="task-item-info">{task.subject}</strong>
                 <p className="text-muted font-italic">
-                  {task.description.substr(0, 80)}
-                  {task.description.length > 80 ? '...' : ''}
+                  {task.description.substr(0, 100)}
+                  {task.description.length > 100 ? '...' : ''}
                 </p>
               </Col>
             </Row>
 
             <Row className="text-center">
               <Col>
-                <div className="task-item-info-sub border-left">
+                <div className="task-item-info-sub border-left d-none d-sm-block">
                   <label>Requester </label>
                   <span className="text-muted">george.l</span>
                 </div>
               </Col>
               <Col>
-                <div className="task-item-info-sub border-left">
+                <div className="task-item-info-sub border-left d-none d-sm-block">
                   <label>Type </label>
                   <div className="bagde-area">
                     {renderBadgeTaskType(task.type)}
@@ -77,7 +77,7 @@ const TaskListItem = ({ task, onSelected }) => {
                 </div>
               </Col>
               <Col>
-                <div className="task-item-info-sub border-left">
+                <div className="task-item-info-sub border-left d-none d-sm-block">
                   <label>Date Inserted </label>
                   <span className="text-muted">
                     {dateFormat(task.startDate)}
@@ -85,7 +85,7 @@ const TaskListItem = ({ task, onSelected }) => {
                 </div>
               </Col>
               <Col>
-                <div className="task-item-info-sub border-left">
+                <div className="task-item-info-sub border-left d-none d-sm-block">
                   <label>Plan Date Start </label>
                   <span className="text-muted">
                     {dateFormat(task.startDate)}
@@ -93,7 +93,7 @@ const TaskListItem = ({ task, onSelected }) => {
                 </div>
               </Col>
               <Col>
-                <div className="task-item-info-sub border-left border-right">
+                <div className="task-item-info-sub border-left border-right d-none d-sm-block">
                   <label>Expected End Date </label>
                   <span className="text-muted">
                   {dateFormat(task.expectedEndDate)}
@@ -102,7 +102,7 @@ const TaskListItem = ({ task, onSelected }) => {
               </Col>
             </Row>
           </Col>
-          <Col xs={12} sm={2} className="task-item-date-status">
+          <Col xs={12} sm={2} className="d-flex align-items-center justify-content-center">
             <div className="task-item-info bagde-area">
                 { renderBadgeTaskDue(task.expectedEndDate) }
             </div>
