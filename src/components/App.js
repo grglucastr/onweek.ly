@@ -10,8 +10,10 @@ import AppHeader from "./AppHeader";
 import TaskDetail from "./TaskDetail";
 import TaskForm from "./TaskForm";
 import TaskHome from "./TaskHome";
+import TaskList from './tasks/TaskList';
 
 import { listTasks } from "../actions/tasks";
+
 
 const tasks = [
   {
@@ -74,7 +76,7 @@ class App extends Component {
           <Row>
             <Col>
               <Switch>
-                <Route exact path="/" component={TaskHome} />
+                <Route exact path="/" component={TaskList} />
                 <Route exact path="/tasks" component={TaskHome} />
                 <Route path="/add-tasks" component={TaskForm} />
                 <Route exact path="/tasks/:id" component={TaskDetail} />
