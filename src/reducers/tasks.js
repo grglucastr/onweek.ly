@@ -1,4 +1,4 @@
-import { LIST_TASKS, ADD_TASK, EDIT_TASK, DELETE_TASK } from "../actions/tasks";
+import { LIST_TASKS, ADD_TASK, EDIT_TASK, DELETE_TASK } from "../components/tasks/actions";
 
 export default function tasks(state = [], action) {
   switch (action.type) {

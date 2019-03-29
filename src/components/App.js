@@ -7,11 +7,9 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 import AppHeader from "./AppHeader";
-import TaskDetail from "./TaskDetail";
-import TaskHome from "./TaskHome";
-import TaskList from './tasks/TaskList';
+import Home from './home'
 
-import { listTasks } from "../actions/tasks";
+import { listTasks } from "./tasks/actions";
 
 
 const tasks = [
@@ -78,11 +76,8 @@ class App extends Component {
             </Col>
             
             <Col xs={8}>
-              <div></div>
               <Switch>
-                <Route exact path="/" component={TaskList} />
-                <Route exact path="/tasks" component={TaskHome} />
-                <Route exact path="/tasks/:id" component={TaskDetail} />
+                <Route exact path="/" component={Home} />
               </Switch>
             </Col>
             
