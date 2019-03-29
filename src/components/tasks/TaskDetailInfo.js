@@ -14,7 +14,7 @@ import {
   faUndoAlt
 } from "@fortawesome/free-solid-svg-icons";
 
-import { dateFormat } from "../util";
+import { dateFormat } from "../../util";
 
 const renderStatusAction = (
   task,

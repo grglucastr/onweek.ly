@@ -82,7 +82,7 @@ class App extends Component {
             </Col>
             
             <Col xs={3}>
-              <h5 className="mt-4">Team Members</h5>
+              <h5 className="mt-4 text-center">Team Members</h5>
             </Col>
           </Row>
 

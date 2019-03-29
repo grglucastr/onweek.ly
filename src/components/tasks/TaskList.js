@@ -2,14 +2,27 @@ import React, { Component } from "react";
 import TaskListItem from "./TaskListItem";
 import { connect } from "react-redux";
 
+import {Modal, Button} from 'react-bootstrap';
+import TaskDetailInfo from './TaskDetailInfo';
+
 class TaskList extends Component {
 
-  callThisAction = (task) =>{
-    console.log(`Task selected ${task.id}`);
+  state = {
+    task: {},
+    showModal: false
+  };
+
+  showTaskDetail = (task) =>{
+    this.setState(state => ({
+      ...state,
+      showModal: true,
+      task
+    }))
   }
 
   render() {
     const { tasks } = this.props;
+    const { task } = this.state;
 
     return (
       <>
@@ -18,10 +31,39 @@ class TaskList extends Component {
             <TaskListItem
               key={task.id}
               task={task}
-              onSelected={(task) => this.callThisAction(task)}
+              onSelected={(task) => this.showTaskDetail(task)}
             />
           ))}
         </div>
+
+
+        <Modal
+          size="lg"
+          show={this.state.showModal}
+          onHide={() => this.setState({ showModal: false })}>
+          <Modal.Header>
+            <strong>Tasks Details</strong>
+          </Modal.Header>
+
+          <Modal.Body>
+            <TaskDetailInfo
+              task={task}
+              onEditTask={taskId => this.editTask(taskId)}
+              onDeleteTask={taskId => this.deleteTask(taskId)}
+              onTaskDone={task => this.onTaskDone(task)}
+              onTaskInProgress={() => this.onTaskInProgress(task)}
+              onTaskReopen={() => this.onTaskReopen(task)}
+            />
+          </Modal.Body>
+
+          <Modal.Footer>
+            <Button
+              variant="secondary"
+              onClick={() => this.setState({ showModal: false })}>
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
       </>
     );
   }
