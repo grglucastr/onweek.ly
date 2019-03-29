@@ -78,15 +78,7 @@ const TaskListItem = ({ task, onSelected }) => {
               </Col>
               <Col>
                 <div className="task-item-info-sub border-left d-none d-sm-block">
-                  <label>Date Inserted </label>
-                  <span className="text-muted">
-                    {dateFormat(task.startDate)}
-                  </span>
-                </div>
-              </Col>
-              <Col>
-                <div className="task-item-info-sub border-left d-none d-sm-block">
-                  <label>Plan Date Start </label>
+                  <label>Date Start </label>
                   <span className="text-muted">
                     {dateFormat(task.startDate)}
                   </span>
@@ -94,7 +86,7 @@ const TaskListItem = ({ task, onSelected }) => {
               </Col>
               <Col>
                 <div className="task-item-info-sub border-left border-right d-none d-sm-block">
-                  <label>Expected End Date </label>
+                  <label>Due Date </label>
                   <span className="text-muted">
                   {dateFormat(task.expectedEndDate)}
                   </span>

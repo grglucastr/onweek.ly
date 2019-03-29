@@ -8,7 +8,6 @@ import Col from "react-bootstrap/Col";
 
 import AppHeader from "./AppHeader";
 import TaskDetail from "./TaskDetail";
-import TaskForm from "./TaskForm";
 import TaskHome from "./TaskHome";
 import TaskList from './tasks/TaskList';
 
@@ -74,21 +73,31 @@ class App extends Component {
           </Row>
 
           <Row>
-            <Col>
+            <Col xs={2}>
+              <h5 className="mt-4">Menu</h5>
+            </Col>
+            
+            <Col xs={8}>
+              <div></div>
               <Switch>
                 <Route exact path="/" component={TaskList} />
                 <Route exact path="/tasks" component={TaskHome} />
-                <Route path="/add-tasks" component={TaskForm} />
                 <Route exact path="/tasks/:id" component={TaskDetail} />
-                <Route exact path="/tasks/:id/edit" component={TaskForm} />
               </Switch>
+            </Col>
+            
+            <Col xs={2}>
+              <h5 className="mt-4">Team Members</h5>
             </Col>
           </Row>
 
           <Row>
-            <Col>{/*<AppFooter />*/}</Col>
+            <Col>asdfasdf{/*<AppFooter />*/}</Col>
           </Row>
+          
         </Container>
+
+        
       </Router>
     );
   }

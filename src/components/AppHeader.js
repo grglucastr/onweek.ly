@@ -15,14 +15,6 @@ function AppHeader(props) {
           <Link to="/">
             <Nav.Link as="span">Home</Nav.Link>
           </Link>
-
-          <Link to="/tasks">
-            <Nav.Link as="span">Tasks</Nav.Link>
-          </Link>
-
-          <Link to="/add-tasks">
-            <Nav.Link as="span">Add Task</Nav.Link>
-          </Link>
         </Nav>
       </Navbar>
     </>
