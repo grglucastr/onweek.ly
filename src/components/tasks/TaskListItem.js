@@ -55,8 +55,8 @@ const TaskListItem = ({ task, onSelected }) => {
               <Col>
                 <strong className="task-item-info">{task.subject}</strong>
                 <p className="text-muted font-italic">
-                  {task.description.substr(0, 100)}
-                  {task.description.length > 100 ? '...' : ''}
+                  {task.description.substr(0, 50)}
+                  {task.description.length > 50 ? '...' : ''}
                 </p>
               </Col>
             </Row>

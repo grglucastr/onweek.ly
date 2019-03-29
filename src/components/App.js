@@ -71,17 +71,17 @@ class App extends Component {
           </Row>
 
           <Row>
-            <Col xs={2}>
+            <Col xs={3}>
               <h5 className="mt-4">Menu</h5>
             </Col>
             
-            <Col xs={8}>
+            <Col xs={6}>
               <Switch>
                 <Route exact path="/" component={Home} />
               </Switch>
             </Col>
             
-            <Col xs={2}>
+            <Col xs={3}>
               <h5 className="mt-4">Team Members</h5>
             </Col>
           </Row>
