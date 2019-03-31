@@ -5,6 +5,8 @@ import { connect } from "react-redux";
 import {Modal, Button} from 'react-bootstrap';
 import TaskDetailInfo from './TaskDetailInfo';
 
+import { deleteTask } from './actions';
+
 class TaskList extends Component {
 
   state = {
@@ -18,6 +20,14 @@ class TaskList extends Component {
       showModal: true,
       task
     }))
+  }
+
+  deleteTask = taskId => {
+    const proceed = window.confirm('Are you sure you want to delete this task?');
+    if( proceed ){
+      this.props.dispatch(deleteTask(taskId))
+      this.setState({showModal: false});
+    }
   }
 
   render() {
