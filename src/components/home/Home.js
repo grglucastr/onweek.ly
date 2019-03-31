@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Tasks from '../tasks';
 import TaskForm from '../tasks/TaskForm';
+import TaskSearch from '../tasks/TaskSearch';
 
 import { Button, Row, Col, Modal } from 'react-bootstrap';
 
@@ -15,10 +16,15 @@ const Home = () => {
         <Col>
           <h5 className="mt-4">Tasks</h5>
         </Col>
+      </Row>
 
-        <Col className="text-right">
-          <Button className="mt-4" onClick={() => setShowModal(true)}>Add Task</Button>
+      <Row>
+        <Col>
+          <div className="mt-2, rounded" style={{backgroundColor: '#efefef', padding: '10px'}}>
+            <TaskSearch onAddTask={() => setShowModal(true)}/>
+          </div>
         </Col>
+
       </Row>
 
       <Tasks/>
