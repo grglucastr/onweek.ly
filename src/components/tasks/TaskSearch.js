@@ -1,10 +1,34 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux';
 import {Row, Col, Button, ToggleButtonGroup, ToggleButton} from 'react-bootstrap'
+import { filterTaskByStatus, filterTaskByType, listTasks } from './actions';
+import tasks from '../../util/_DATA';
 
 class TaskSearch extends Component {
   state = {
     term: '',
+    status: 1,
+    type:1,
   }
+
+  onTypeChange = selectedType => {
+    this.setState({status: selectedType});
+    if(selectedType === 0){
+      this.props.dispatch(listTasks(tasks));
+    }else{
+      this.props.dispatch(filterTaskByType(selectedType));
+    } 
+  }
+
+  onStatusChange = selectedStatus => {
+    this.setState({status: selectedStatus});
+    if(selectedStatus === 0){
+      this.props.dispatch(listTasks(tasks));
+    }else{
+      this.props.dispatch(filterTaskByStatus(selectedStatus));
+    } 
+  }
+
 
   render(){
     return (
@@ -14,14 +38,15 @@ class TaskSearch extends Component {
             <ToggleButtonGroup
               type="radio"
               name="type"
-              defaultValue={1}>
-              <ToggleButton variant="light"  value={1}>
+              onChange={this.onTypeChange}
+              defaultValue={this.state.type}>
+              <ToggleButton variant="light"  value={0}>
                 All
               </ToggleButton>
-              <ToggleButton variant="light" value={2}>
+              <ToggleButton variant="light"  value={1}>
                 VOC
               </ToggleButton>
-              <ToggleButton variant="light"  value={3}>
+              <ToggleButton variant="light"   value={2}>
                 Issue
               </ToggleButton>
             </ToggleButtonGroup>
@@ -30,17 +55,18 @@ class TaskSearch extends Component {
             <ToggleButtonGroup
               type="radio"
               name="type"
-              defaultValue={1}>
-              <ToggleButton variant="light" value={1}>
+              onChange={this.onStatusChange}
+              defaultValue={this.state.status}>
+              <ToggleButton variant="light" value={0}>
                 All
               </ToggleButton>
-              <ToggleButton variant="light" value={2}>
+              <ToggleButton variant="light" value={1}>
                 To Do
               </ToggleButton>
-              <ToggleButton variant="light" value={3}>
+              <ToggleButton variant="light" value={2}>
                 In Progress
               </ToggleButton>
-              <ToggleButton variant="light"   value={4}>
+              <ToggleButton variant="light"   value={3}>
                 Done
               </ToggleButton>
             </ToggleButtonGroup>
@@ -63,4 +89,4 @@ class TaskSearch extends Component {
   }
 }
 
-export default TaskSearch;
+export default connect()(TaskSearch);

@@ -3,7 +3,7 @@ import Tasks from '../tasks';
 import TaskForm from '../tasks/TaskForm';
 import TaskSearch from '../tasks/TaskSearch';
 
-import { Button, Row, Col, Modal } from 'react-bootstrap';
+import { Row, Col, Modal } from 'react-bootstrap';
 
 const Home = () => {
 
