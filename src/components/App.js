@@ -75,15 +75,15 @@ class App extends Component {
               <h5 className="mt-4">Menu</h5>
             </Col>
             
-            <Col xs={6}>
+            <Col xs={8}>
               <Switch>
                 <Route exact path="/" component={Home} />
               </Switch>
             </Col>
             
-            <Col xs={3}>
+            {/* <Col xs={3}>
               <h5 className="mt-4 text-center">Team Members</h5>
-            </Col>
+            </Col> */}
           </Row>
 
           <Row>
