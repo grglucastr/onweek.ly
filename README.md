@@ -5,8 +5,9 @@ To check the backend API, please visit: [OnWeek.ly API](https://github.com/grglu
 
 ## Requirements
 
-Backend server must be running in order to make this webapp works. 
-Visit the [OnWeek.ly API](https://github.com/grglucastr/onweekly-api) to get more details about it
+For the current development stage, you can simple clone this repository and install the dependencies with ```npm install``` or ```yarn install```. There are hard coded tasks where you can start from it.
+
+Data is located under the ```src/util/_DATA.js``` file.
 
 ## Available Scripts
 
