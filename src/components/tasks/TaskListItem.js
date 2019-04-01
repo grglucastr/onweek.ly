@@ -65,7 +65,7 @@ const TaskListItem = ({ task, onSelected }) => {
               <Col>
                 <div className="task-item-info-sub border-left d-none d-sm-block">
                   <label>Requester </label>
-                  <span className="text-muted">george.l</span>
+                  <span className="text-muted">{task.requester}</span>
                 </div>
               </Col>
               <Col>

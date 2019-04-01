@@ -1,23 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import {Row, Col, Button, ToggleButtonGroup, ToggleButton} from 'react-bootstrap'
-import { filterTaskByStatus, filterTaskByType, listTasks } from './actions';
+import { filterTaskByStatus, filterTaskByTerm, listTasks } from './actions';
 import tasks from '../../util/_DATA';
 
 class TaskSearch extends Component {
   state = {
     term: '',
-    status: 1,
-    type:1,
-  }
-
-  onTypeChange = selectedType => {
-    this.setState({status: selectedType});
-    if(selectedType === 0){
-      this.props.dispatch(listTasks(tasks));
-    }else{
-      this.props.dispatch(filterTaskByType(selectedType));
-    } 
+    status: 0,
+    type: 0,
   }
 
   onStatusChange = selectedStatus => {
@@ -25,8 +16,20 @@ class TaskSearch extends Component {
     if(selectedStatus === 0){
       this.props.dispatch(listTasks(tasks));
     }else{
+      this.props.dispatch(listTasks(tasks));
       this.props.dispatch(filterTaskByStatus(selectedStatus));
     } 
+  }
+
+  onTermChange = e => {
+    const term = e.target.value;
+    this.setState({ term });
+
+    if(term === ""){
+      this.props.dispatch(listTasks(tasks));
+    }
+
+    this.props.dispatch(filterTaskByTerm(term));
   }
 
 
@@ -34,23 +37,6 @@ class TaskSearch extends Component {
     return (
       <>
         <Row>
-          <Col sm={3} className="pl-0">
-            <ToggleButtonGroup
-              type="radio"
-              name="type"
-              onChange={this.onTypeChange}
-              defaultValue={this.state.type}>
-              <ToggleButton variant="light"  value={0}>
-                All
-              </ToggleButton>
-              <ToggleButton variant="light"  value={1}>
-                VOC
-              </ToggleButton>
-              <ToggleButton variant="light"   value={2}>
-                Issue
-              </ToggleButton>
-            </ToggleButtonGroup>
-          </Col>
           <Col>
             <ToggleButtonGroup
               type="radio"
@@ -81,6 +67,8 @@ class TaskSearch extends Component {
             <input
               className="form-control mt-2"
               placeholder="#Task No., Task Title or Task Requester"
+              value={this.state.term}
+              onChange={this.onTermChange}
             />
           </Col>
         </Row>

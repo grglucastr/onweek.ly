@@ -15,11 +15,15 @@ export default function tasks(state = [], action) {
       return state.filter(tasks => tasks.status === action.status);
 
     case FILTER_TASK_BY_TYPE:
-    
-      return state.filter(tasks => tasks.type === action.selectedType);
+      return state.filter(task => task.type === action.selectedType);
 
     case FILTER_TASK_BY_TERM:
-      return state;
+      const term = action.term.toLowerCase();
+      return state.filter(task => 
+                                task.id.toString().toLowerCase().indexOf(term) >= 0  || 
+                                task.subject.toLowerCase().indexOf(term) >=0 || 
+                                task.requester.toLowerCase().indexOf(term) >= 0);
+
 
     case LIST_TASKS:
       return action.tasks;

@@ -7,6 +7,8 @@ import TaskDetailInfo from './TaskDetailInfo';
 
 import { deleteTask } from './actions';
 
+import { Container, Row, Col } from "react-bootstrap";
+
 class TaskList extends Component {
 
   state = {
@@ -34,9 +36,27 @@ class TaskList extends Component {
     const { tasks } = this.props;
     const { task } = this.state;
 
+    if(tasks.length == 0) {
+      return(
+        <div className="task-list-container mt-4">
+          <Container fluid="true" className="task-item text-center">
+            <Row>
+              <Col> {tasks.length} tasks found. </Col>
+            </Row>
+          </Container>
+
+        </div>
+      )
+    }
+
     return (
       <>
         <div className="task-list-container mt-4">
+          <div className="text-right text-muted pr-1">
+            {tasks.length}
+            { tasks.length == 1 ? ' result' : ' results' }
+             
+          </div>
           {tasks.map(task => (
             <TaskListItem
               key={task.id}
