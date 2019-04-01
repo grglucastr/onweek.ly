@@ -7,10 +7,10 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 import AppHeader from "./AppHeader";
-import Home from './home'
+import Home from '../home'
 
-import { listTasks } from "./tasks/actions";
-import tasks from '../util/_DATA';
+import { listTasks } from "../tasks/actions";
+import tasks from '../../util/_DATA';
 
 
 class App extends Component {
