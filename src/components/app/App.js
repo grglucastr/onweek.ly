@@ -9,9 +9,11 @@ import Col from "react-bootstrap/Col";
 import AppHeader from "./AppHeader";
 import Home from '../home'
 import Login from '../login'
+import Dashboard from '../dashboard/Dashboard';
 
 import { listTasks } from "../tasks/actions";
 import tasks from '../../util/_DATA';
+
 
 
 class App extends Component {
@@ -30,29 +32,17 @@ class App extends Component {
           </Row>
 
           <Row>
-            <Col xs={3}>
-              <h5 className="mt-4">Menu</h5>
-            </Col>
-            
-            <Col xs={8}>
+            <Col>
               <Switch>
                 <Route exact path="/" component={Home} />
-                <Route exact path="/login" component={Login} />
               </Switch>
             </Col>
-            
-            {/* <Col xs={3}>
-              <h5 className="mt-4 text-center">Team Members</h5>
-            </Col> */}
           </Row>
 
           <Row>
             <Col>asdfasdf{/*<AppFooter />*/}</Col>
           </Row>
-          
         </Container>
-
-        
       </Router>
     );
   }

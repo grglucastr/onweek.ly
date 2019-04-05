@@ -3,43 +3,22 @@ import Tasks from '../tasks';
 import TaskForm from '../tasks/TaskForm';
 import TaskSearch from '../tasks/TaskSearch';
 
-import { Row, Col, Modal } from 'react-bootstrap';
+import { Row, Col, Modal, Button } from 'react-bootstrap';
 
 const Home = () => {
-
-  const [showModal, setShowModal]  = useState(false);
-
-
   return(
     <>
       <Row>
+        <Col sm={8}>
+          <h2>Welcome Side</h2>
+        </Col>
+        
         <Col>
-          <h5 className="mt-4">Tasks</h5>
+          <h2>SignUp Form</h2>
+          <Button variant="primary">Sign In</Button>
         </Col>
       </Row>
-
-      <Row>
-        <Col>
-          <div className="mt-2, rounded" style={{backgroundColor: '#efefef', padding: '10px'}}>
-            <TaskSearch onAddTask={() => setShowModal(true)}/>
-          </div>
-        </Col>
-
-      </Row>
-
-      <Tasks/>
-
-      
-      <Modal show={showModal}>
-        <Modal.Header>
-          <strong>Add new Task</strong>
-        </Modal.Header>
-
-        <Modal.Body>  
-          <TaskForm onDone={() => setShowModal(false)}/>
-        </Modal.Body>
-      </Modal>
-    </>
+    </> 
   )
 }
 
