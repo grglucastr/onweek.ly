@@ -8,6 +8,7 @@ import Col from "react-bootstrap/Col";
 
 import AppHeader from "./AppHeader";
 import Home from '../home'
+import Login from '../login'
 
 import { listTasks } from "../tasks/actions";
 import tasks from '../../util/_DATA';
@@ -36,6 +37,7 @@ class App extends Component {
             <Col xs={8}>
               <Switch>
                 <Route exact path="/" component={Home} />
+                <Route exact path="/login" component={Login} />
               </Switch>
             </Col>
             
