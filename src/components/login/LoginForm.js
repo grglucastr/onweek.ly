@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
+import { Row, Col, Button } from 'react-bootstrap';
 
 class LoginForm extends React.Component {
 
@@ -23,40 +25,64 @@ class LoginForm extends React.Component {
   }
 
   render(){
+    const { showHeader }  = this.props;
     return(
       <div className="form-container">
-        <div className="form-header">
-          <h3>Login</h3>
-        </div>
+        {
+          showHeader ? 
+          (
+          <div className="form-header">
+            <h3>Login</h3>
+          </div>
+          ) : ''
+        }
+        
 
         <form onSubmit={this.onFormSubmit}>
-          <div className="form-group">
-            <label htmlFor="email">E-mail: </label>
-            <input type="text" 
-                   className="form-control" 
-                   name="email" 
-                   id="email"  
-                   placeholder="me@example.com"
-                   onChange={this.onValueChange}
-                   value={this.state.email}
-                   />
-          </div>
+          <Row>
+            <Col>
+              <div className="form-group">
+                <label htmlFor="email">E-mail: </label>
+                <input type="text" 
+                  className="form-control" 
+                  name="email" 
+                  id="email"  
+                  placeholder="me@example.com"
+                  onChange={this.onValueChange}
+                  value={this.state.email}
+                  />
+              </div>
+            </Col>
+          </Row>
+          
+          <Row>
+            <Col>
+              <div className="form-group">
+                <label htmlFor="password">Password: </label>
+                <input 
+                    type="password" 
+                    className="form-control"
+                    name="password"
+                    id="password"
+                    placeholder="******"
+                    onChange={this.onValueChange}
+                    value={this.state.password}/>
+              </div>
+            </Col>
+          </Row>
 
-          <div className="form-group">
-            <label htmlFor="password">Password: </label>
-            <input type="password" 
-                   className="form-control"
-                   name="password"
-                   id="password"
-                   placeholder="******"
-                   onChange={this.onValueChange}
-                   value={this.state.password}
-                   />
-          </div>
-
-          <div className="form-group text-right">
-            <button className="btn btn-primary">Sign In</button>
-          </div>
+          
+          <Row>
+            <Col className="text-left">
+              <Link to="" >Forgot Password</Link>
+            </Col>
+            <Col>
+              <div className="form-group text-right">
+                <Button variant="primary">Sign In</Button>
+              </div>
+            </Col>
+          </Row>
+          
 
         </form>
       </div>
