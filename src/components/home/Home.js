@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import Tasks from '../tasks';
-import TaskForm from '../tasks/TaskForm';
-import TaskSearch from '../tasks/TaskSearch';
+import Login from '../login';
 
 import { Row, Col, Modal, Button } from 'react-bootstrap';
 
@@ -14,8 +12,26 @@ const Home = () => {
         </Col>
         
         <Col>
-          <h2>SignUp Form</h2>
-          <Button variant="primary">Sign In</Button>
+          <Row>
+            <Col>
+              <div style={{padding:'5px', width: '80%'}}>
+                <h3 className="text-center">Have an Account?</h3>
+                <Login showHeader={false}/>
+              </div>
+            </Col>
+          </Row>
+
+          <Row>
+            <Col>
+              <div style={{padding:'5px', width: '80%'}}>
+                <h3 className="text-center">Not a member yet?</h3>
+                <Button variant="success" style={{display: 'block', width:'60%', margin:'auto', marginTop:'2em'}}>Sign In</Button>
+              </div>
+            </Col>
+          </Row>
+
+
+          
         </Col>
       </Row>
     </> 
