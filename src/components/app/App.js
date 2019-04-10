@@ -40,7 +40,7 @@ class App extends Component {
           </Row>
 
           <Row>
-            <Col>asdfasdf{/*<AppFooter />*/}</Col>
+            <Col>{/*<AppFooter />*/}</Col>
           </Row>
         </Container>
       </Router>

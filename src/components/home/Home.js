@@ -1,16 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
 import Login from "../login";
 
-import { Row, Col, Modal, Button } from "react-bootstrap";
+import { Row, Col, Button } from "react-bootstrap";
 
-import "./styles.css";
+import "./Home.css";
 
 const Home = () => {
   return (
-    <>
+    <div className="panel">
       <Row>
         <Col sm={8}>
-          <h2>Welcome Side</h2>
+          <div className="panel-welcome-side">
+
+
+          </div>
         </Col>
 
         <Col>
@@ -25,9 +28,8 @@ const Home = () => {
 
           <Row>
             <Col>
-              <div style={{ padding: "5px", width: "80%" }}>
+              <div style={{ padding: "5px", width: "80%", textAlign: 'center' }}>
                 <h3 className="text-center">Not a member yet?</h3>
-
                 <Button variant="success" className="btn-sign-up">
                   Sign Up
                 </Button>
@@ -36,7 +38,7 @@ const Home = () => {
           </Row>
         </Col>
       </Row>
-    </>
+    </div>
   );
 };
 
