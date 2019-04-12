@@ -1,6 +1,8 @@
 import React from "react";
 import Login from "../login";
 
+import { Link  } from 'react-router-dom';
+
 import { Row, Col, Button } from "react-bootstrap";
 
 import "./Home.css";
