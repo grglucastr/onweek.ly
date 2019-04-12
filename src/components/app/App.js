@@ -7,13 +7,13 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 import AppHeader from "./AppHeader";
-import Home from "../home";
-import Login from "../login";
-import Dashboard from "../dashboard/Dashboard";
+import Home from "./home";
+import Login from "./login";
+import Dashboard from "./dashboard/Dashboard";
 
-import { listTasks } from "../tasks/actions";
+import { listTasks } from "./tasks/actions";
 import tasks from "../../util/_DATA";
-import SignupForm from "../signup/SignupForm";
+import SignupForm from "./signup/SignupForm";
 
 class App extends Component {
   componentDidMount() {

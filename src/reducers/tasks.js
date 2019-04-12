@@ -6,7 +6,7 @@ import {
   FILTER_TASK_BY_STATUS,
   FILTER_TASK_BY_TERM,
   FILTER_TASK_BY_TYPE
-} from "../components/tasks/actions";
+} from "../components/app/tasks/actions";
 
 export default function tasks(state = [], action) {
   switch (action.type) {

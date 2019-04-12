@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import {Row, Col, Button, ToggleButtonGroup, ToggleButton} from 'react-bootstrap'
 import { filterTaskByStatus, filterTaskByTerm, listTasks } from './actions';
-import tasks from '../../util/_DATA';
+import tasks from '../../../util/_DATA';
 
 class TaskSearch extends Component {
   state = {

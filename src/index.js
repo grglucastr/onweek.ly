@@ -9,11 +9,13 @@ import taskReducer from "./reducers/tasks";
 import "bootstrap/dist/css/bootstrap.css";
 import "./Base.css";
 
+import Site from './components/site';
+
 const store = createStore(taskReducer);
 
+const isAuthenticated = false;
+
 ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
+  (isAuthenticated ? <Provider store={store}><App /></Provider> : <Site />),
   document.getElementById("root")
 );
