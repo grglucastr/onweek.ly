@@ -1,24 +1,24 @@
-import React from 'react';
+import React from "react";
 
-import { BrowserRouter as Router } from 'react-router-dom';
-import SiteHeader from './SiteHeader';
-import Home from './Home';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import SiteHeader from "./SiteHeader";
+import CreateAccount from "./CreateAccount";
+import Home from "./Home";
 
-import './styles.css';
+import "./styles.css";
 
 const index = () => {
-  return(
+  return (
     <Router>
-      <div style={{height: '100%'}}>
+      <div style={{ height: "100%" }}>
         <SiteHeader />
         <section className="site-main-section">
-          <Home />
+          <Route exact path="/" component={Home} />
+          <Route path="/create-account" component={CreateAccount} />
         </section>
       </div>
     </Router>
-    
-  )
-}
-
+  );
+};
 
 export default index;
