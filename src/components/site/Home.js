@@ -15,7 +15,7 @@ const Home = () =>  {
           <Container>
             <Row>
               <Col>
-                <LoginForm />
+                <LoginForm  showHeader={true}/>
               </Col>
             </Row>
 

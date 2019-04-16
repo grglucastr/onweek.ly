@@ -4,15 +4,16 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import SiteHeader from './SiteHeader';
 import Home from './Home';
 
+import './styles.css';
 
 const index = () => {
   return(
     <Router>
       <div>
         <SiteHeader />
-        <div>
+        <section id="site-main-section">
           <Home />
-        </div>
+        </section>
       </div>
     </Router>
     
