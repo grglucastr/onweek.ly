@@ -10,6 +10,11 @@ const onFormSubmit = e => {
 
 
 const LoginForm = ({ showHeader }) => {
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+
   return(
     <div>
       {
@@ -27,7 +32,9 @@ const LoginForm = ({ showHeader }) => {
                 className="form-control"
                 name="email"
                 id="email"
-                placeholder="me@example.com"/>
+                placeholder="me@example.com"
+                onChange={(e) => setEmail(e.target.value)}
+                value={email}/>
             </div>
           </Col>
         </Row>
@@ -42,6 +49,8 @@ const LoginForm = ({ showHeader }) => {
                 name="password"
                 id="password"
                 placeholder="******"
+                onChange={(e) => setPassword(e.target.value)}
+                value={password}
               />
             </div>
           </Col>
