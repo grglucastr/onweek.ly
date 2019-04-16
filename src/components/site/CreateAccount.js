@@ -2,22 +2,29 @@ import React, { useState } from "react";
 
 import "./styles.css";
 
-const onSubmit = e => {
-  e.preventDefault();
-  console.log(e);
-};
-
 const CreateAccount = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const [passConfirm, setPassConfirm] = useState("");
 
+  const onSubmitForm = e => {
+    e.preventDefault();
+    const userAccount = {
+      name,
+      email,
+      pass,
+      passConfirm
+    };
+
+    console.log(userAccount);
+  };
+
   return (
     <div className="create-account-grid">
       <div className="form-item">
         <h2>Create Account</h2>
-        <form onSubmit={e => onSubmit(e)}>
+        <form onSubmit={e => onSubmitForm(e)}>
           <div className="form-group">
             <label htmlFor="name"> Name: </label>
             <input
