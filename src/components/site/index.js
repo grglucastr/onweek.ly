@@ -9,9 +9,9 @@ import './styles.css';
 const index = () => {
   return(
     <Router>
-      <div>
+      <div style={{height: '100%'}}>
         <SiteHeader />
-        <section id="site-main-section">
+        <section className="site-main-section">
           <Home />
         </section>
       </div>
