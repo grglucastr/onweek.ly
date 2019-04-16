@@ -7,7 +7,7 @@ const Home = () =>  {
   return(
     <Container fluid={true} className="hero-container">
       <Row>
-        <Col xs={8}>
+        <Col xs={8} className="d-none d-sm-none d-md-block">
           <h2>Your weekly now well managed</h2>
         </Col>
 
@@ -15,18 +15,20 @@ const Home = () =>  {
           <Container>
             <Row>
               <Col>
-                <LoginForm  showHeader={true}/>
+                <div className="mt-3">
+                  <LoginForm  showHeader={true}/>
+                </div>
               </Col>
             </Row>
 
             <Row>
               <Col>
-                <h2>Not a member yet?</h2>
+                <h2 className="mt-5 text-center" >Not a member yet?</h2>
               </Col>
             </Row>
             <Row>
-              <Col>
-                <Button variant="success">Create Account</Button>
+              <Col className="text-center">
+                <Button variant="success" className="mt-2">Create Account</Button>
               </Col>
             </Row>
           </Container>
