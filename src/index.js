@@ -16,6 +16,6 @@ const store = createStore(taskReducer);
 const isAuthenticated = false;
 
 ReactDOM.render(
-  (isAuthenticated ? <Provider store={store}><App /></Provider> : <Site />),
+  (<Provider store={store}>{isAuthenticated ? <App /> : <Site />}</Provider>),
   document.getElementById("root")
 );
